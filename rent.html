@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Soma Ko Rent - Find your perfect home with verified properties, virtual tours, and hassle-free rental process.">
+    <meta name="keywords" content="property rental, apartment rental, house rental, Soma Ko Rent, real estate, property search">
+    <meta property="og:title" content="Soma Ko Rent - Find Your Perfect Home">
+    <meta property="og:description" content="Discover verified properties with virtual tours and seamless rental process. Your dream home awaits!">
+    <meta property="og:image" content="https://somako.org/rent-preview.jpg">
+    <meta property="og:url" content="https://somako.org/rent">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="author" content="Soma Ko">
+    <title>Soma Ko Rent - Find Your Perfect Home</title>
+    
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/favicon.svg">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="rent-theme">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon rent-gradient">
+                    <i class="fas fa-home"></i>
+                </div>
+                <span class="logo-text">Soma Ko Rent</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#properties" class="nav-link">Properties</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#landlords" class="nav-link">Landlords</a>
+                <a href="#download" class="nav-link">Download</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero rent-hero">
+        <div class="hero-background">
+            <div class="property-skyline">
+                <div class="building building-1"></div>
+                <div class="building building-2"></div>
+                <div class="building building-3"></div>
+                <div class="building building-4"></div>
+                <div class="building building-5"></div>
+            </div>
+            <div class="floating-properties">
+                <div class="property-icon">🏠</div>
+                <div class="property-icon">🏢</div>
+                <div class="property-icon">🏬</div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Find Your <span class="rent-gradient-text">Dream Home</span><br>
+                        With Confidence 🏡
+                    </h1>
+                    <p class="hero-subtitle">
+                        Discover verified properties with virtual tours, transparent pricing, and seamless rental process. From cozy apartments to luxury homes, find your perfect space.
+                    </p>
+                    <div class="search-box">
+                        <div class="search-input">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" placeholder="Enter city, neighborhood, or property name...">
+                        </div>
+                        <div class="search-filters">
+                            <select>
+                                <option>Property Type</option>
+                                <option>Apartment</option>
+                                <option>House</option>
+                                <option>Studio</option>
+                            </select>
+                            <select>
+                                <option>Budget</option>
+                                <option>$500-1000</option>
+                                <option>$1000-2000</option>
+                                <option>$2000+</option>
+                            </select>
+                        </div>
+                        <button class="search-button rent-btn">
+                            <i class="fas fa-search"></i>
+                            Search Properties
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-count="25000">25K+</span>
+                            <span class="stat-label">Properties Listed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="50000">50K+</span>
+                            <span class="stat-label">Happy Tenants</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="1000">1000+</span>
+                            <span class="stat-label">Verified Landlords</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="phone-mockup rent-phone">
+                        <div class="phone-screen">
+                            <div class="rent-interface">
+                                <div class="app-header">
+                                    <div class="location">📍 Downtown Area</div>
+                                    <div class="filter-icon">⚙️</div>
+                                </div>
+                                <div class="property-card">
+                                    <div class="property-image">🏠</div>
+                                    <div class="property-info">
+                                        <div class="property-title">Modern Apartment</div>
+                                        <div class="property-price">$1,200/month</div>
+                                        <div class="property-details">2 bed • 1 bath • 900 sq ft</div>
+                                        <div class="property-actions">
+                                            <button class="tour-btn">🎥 Virtual Tour</button>
+                                            <button class="save-btn">❤️</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="map-toggle">🗺️ Map View</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Types -->
+    <section id="properties" class="property-types-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Explore <span class="rent-gradient-text">Property Types</span></h2>
+                <p class="section-subtitle">Find the perfect space that matches your lifestyle and budget.</p>
+            </div>
+            <div class="property-types-grid">
+                <div class="property-type-card">
+                    <div class="property-type-icon">🏠</div>
+                    <h3>Apartments</h3>
+                    <p>Modern apartments in prime locations with all amenities</p>
+                    <div class="property-stats">
+                        <span>🏢 12,500+ listings</span>
+                        <span>💰 $800-3000/month</span>
+                    </div>
+                    <div class="popular-badge">Most Popular</div>
+                </div>
+                <div class="property-type-card">
+                    <div class="property-type-icon">🏡</div>
+                    <h3>Houses</h3>
+                    <p>Spacious family homes with gardens and parking</p>
+                    <div class="property-stats">
+                        <span>🏘️ 8,200+ listings</span>
+                        <span>💰 $1500-5000/month</span>
+                    </div>
+                </div>
+                <div class="property-type-card">
+                    <div class="property-type-icon">🏢</div>
+                    <h3>Studios</h3>
+                    <p>Compact and efficient living spaces for young professionals</p>
+                    <div class="property-stats">
+                        <span>🏬 3,100+ listings</span>
+                        <span>💰 $500-1200/month</span>
+                    </div>
+                </div>
+                <div class="property-type-card">
+                    <div class="property-type-icon">🏨</div>
+                    <h3>Luxury Condos</h3>
+                    <p>Premium properties with concierge and luxury amenities</p>
+                    <div class="property-stats">
+                        <span>🌟 1,200+ listings</span>
+                        <span>💰 $2500-8000/month</span>
+                    </div>
+                    <div class="premium-badge">Premium</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose <span class="rent-gradient-text">Soma Ko Rent</span>?</h2>
+                <p class="section-subtitle">Experience a revolutionary approach to property rental with cutting-edge features.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon rent-gradient">
+                        <i class="fas fa-vr-cardboard"></i>
+                    </div>
+                    <h3>Virtual Tours</h3>
+                    <p>Explore properties from home with immersive 360° virtual tours and high-quality photos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon rent-gradient">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
+                    <h3>Verified Properties</h3>
+                    <p>All properties are verified with accurate photos, details, and legal documentation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon rent-gradient">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Instant Booking</h3>
+                    <p>Book properties instantly with digital lease agreements and secure online payments.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon rent-gradient">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Maintenance Support</h3>
+                    <p>24/7 maintenance request system with quick response and professional service.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon rent-gradient">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden fees, clear cost breakdown, and rent payment tracking with receipts.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon rent-gradient">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>Roommate Matching</h3>
+                    <p>Find compatible roommates with our smart matching algorithm and background checks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How to <span class="rent-gradient-text">Find Your Home</span></h2>
+                <p class="section-subtitle">Simple steps to discover and secure your perfect rental property.</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-icon rent-gradient">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Search & Filter</h3>
+                    <p>Use advanced filters to find properties that match your budget, location preferences, and amenities.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-icon rent-gradient">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Virtual Tour</h3>
+                    <p>Take immersive virtual tours, view detailed photos, and check property specifications online.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-icon rent-gradient">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Schedule Visit</h3>
+                    <p>Book in-person visits at your convenience or proceed with virtual-only viewing if satisfied.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <div class="step-icon rent-gradient">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3>Secure & Move</h3>
+                    <p>Complete digital paperwork, make secure payments, and get ready to move into your new home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Landlords -->
+    <section id="landlords" class="landlords-section">
+        <div class="container">
+            <div class="landlords-content">
+                <div class="landlords-visual">
+                    <div class="landlord-dashboard">
+                        <div class="dashboard-header">
+                            <h4>Landlord Dashboard</h4>
+                            <div class="earnings-display">
+                                <span class="amount">$12,450</span>
+                                <span class="period">This Month</span>
+                            </div>
+                        </div>
+                        <div class="property-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">15</span>
+                                <span class="stat-label">Properties</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">12</span>
+                                <span class="stat-label">Occupied</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">98%</span>
+                                <span class="stat-label">Occupancy</span>
+                            </div>
+                        </div>
+                        <div class="recent-activities">
+                            <h5>Recent Activities</h5>
+                            <div class="activity">💰 Rent received - Apt 4B</div>
+                            <div class="activity">🔧 Maintenance request - Apt 2A</div>
+                            <div class="activity">👤 New tenant inquiry</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="landlords-text">
+                    <h2 class="section-title">List Your <span class="rent-gradient-text">Property</span></h2>
+                    <p class="section-subtitle">Join thousands of landlords who trust Soma Ko Rent to manage their properties efficiently.</p>
+                    <div class="landlord-benefits">
+                        <div class="benefit">
+                            <i class="fas fa-chart-line"></i>
+                            <div class="benefit-content">
+                                <h3>Maximize Occupancy</h3>
+                                <p>Reach verified tenants and reduce vacancy periods with our extensive user base.</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-shield-alt"></i>
+                            <div class="benefit-content">
+                                <h3>Tenant Screening</h3>
+                                <p>Comprehensive background checks and credit verification for all potential tenants.</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div class="benefit-content">
+                                <h3>Easy Management</h3>
+                                <p>Manage all properties, collect rent, and handle maintenance requests from one dashboard.</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-handshake"></i>
+                            <div class="benefit-content">
+                                <h3>Legal Support</h3>
+                                <p>Access to legal templates, lease agreements, and professional support when needed.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="landlord-cta">
+                        <a href="#" class="btn btn-primary rent-btn">
+                            <i class="fas fa-plus"></i>
+                            List Your Property
+                        </a>
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-info-circle"></i>
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our <span class="rent-gradient-text">Users</span> Say</h2>
+                <p class="section-subtitle">Stories from tenants and landlords who found success with Soma Ko Rent.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Found my dream apartment in just 2 days! The virtual tour was so detailed, I knew it was perfect before even visiting. The booking process was seamless."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👩‍💻</div>
+                        <div class="author-info">
+                            <h4>Emma Rodriguez</h4>
+                            <span>Software Engineer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"As a landlord, this platform has been a game-changer. I've reduced vacancy periods by 60% and the tenant quality is exceptional thanks to their screening process."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍💼</div>
+                        <div class="author-info">
+                            <h4>David Park</h4>
+                            <span>Property Owner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"The roommate matching feature helped me find the perfect flatmate. We've been living together for 8 months now and it's been amazing!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👩‍🎓</div>
+                        <div class="author-info">
+                            <h4>Jessica Chen</h4>
+                            <span>Graduate Student</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download-section rent-download">
+        <div class="container">
+            <div class="download-content">
+                <div class="download-text">
+                    <h2 class="section-title">Download <span class="rent-gradient-text">Soma Ko Rent</span></h2>
+                    <p class="section-subtitle">Start your property search journey today and find your perfect home.</p>
+                    <div class="app-store-buttons">
+                        <a href="https://play.google.com/store/apps/details?id=com.somako.rent" class="store-button">
+                            <img src="assets/google-play-badge.svg" alt="Get it on Google Play">
+                        </a>
+                        <a href="https://apps.apple.com/app/soma-ko-rent/id123456789" class="store-button">
+                            <img src="assets/app-store-badge.svg" alt="Download on the App Store">
+                        </a>
+                    </div>
+                    <div class="download-features">
+                        <div class="download-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Verified properties</span>
+                        </div>
+                        <div class="download-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Virtual tours</span>
+                        </div>
+                        <div class="download-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Instant booking</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="download-visual">
+                    <div class="phone-showcase">
+                        <div class="download-phone">
+                            <div class="phone-screen">
+                                <div class="app-preview">
+                                    <div class="preview-header">
+                                        <i class="fas fa-home"></i>
+                                        <span>Soma Ko Rent</span>
+                                    </div>
+                                    <div class="search-preview">
+                                        <div class="search-box-preview">
+                                            <i class="fas fa-search"></i>
+                                            <span>Find your dream home...</span>
+                                        </div>
+                                    </div>
+                                    <div class="property-preview">
+                                        <div class="property-image-preview">🏠</div>
+                                        <div class="property-details-preview">
+                                            <span class="property-name">Luxury Apartment</span>
+                                            <span class="property-price">$1,800/month</span>
+                                            <span class="property-location">Downtown • 2 bed</span>
+                                        </div>
+                                        <div class="quick-actions">
+                                            <button class="action-btn">🎥 Tour</button>
+                                            <button class="action-btn">❤️ Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon rent-gradient">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <span class="logo-text">Soma Ko Rent</span>
+                    </div>
+                    <p class="footer-description">Your trusted partner in finding the perfect rental property with verified listings and seamless experiences.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#properties">Properties</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#landlords">For Landlords</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Other Apps</h3>
+                    <ul class="footer-links">
+                        <li><a href="food.html">Soma Ko Food</a></li>
+                        <li><a href="ride.html">Soma Ko Ride</a></li>
+                        <li><a href="pharmacy.html">Soma Ko Pharmacy</a></li>
+                        <li><a href="express.html">Soma Ko Express</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Property Types</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Apartments</a></li>
+                        <li><a href="#">Houses</a></li>
+                        <li><a href="#">Studios</a></li>
+                        <li><a href="#">Luxury Condos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>rent@somako.org</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-RENT</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Available in 50+ cities</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-divider"></div>
+                <div class="footer-bottom-content">
+                    <p class="copyright">&copy; 2025 Soma Ko Rent. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Fair Housing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

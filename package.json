@@ -1,0 +1,149 @@
+{
+  "name": "soma-ko-landing-pages",
+  "version": "1.0.0",
+  "description": "Comprehensive landing page ecosystem for Soma Ko app suite",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080 -c-1",
+    "dev": "npx live-server --port=8080 --no-browser",
+    "build": "echo 'No build process required - static files ready for deployment'",
+    "test": "echo 'Run manual testing checklist'",
+    "validate": "npx html-validate *.html",
+    "lighthouse": "npx lighthouse http://localhost:8080 --output html --output-path ./lighthouse-report.html",
+    "deploy": "echo 'Upload files to your hosting provider'",
+    "clean": "echo 'No build artifacts to clean'"
+  },
+  "keywords": [
+    "landing-page",
+    "responsive-design",
+    "food-delivery",
+    "ride-hailing",
+    "pharmacy",
+    "property-rental",
+    "package-delivery",
+    "mobile-app",
+    "soma-ko"
+  ],
+  "author": "Soma Ko Logistics",
+  "license": "PROPRIETARY",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TechDreamAfrica/somako-landing.git"
+  },
+  "homepage": "https://somako.org",
+  "bugs": {
+    "url": "https://github.com/TechDreamAfrica/somako-landing/issues",
+    "email": "support@somako.org"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11"
+  ],
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2",
+    "lighthouse": "^10.4.0",
+    "html-validate": "^8.7.4"
+  },
+  "config": {
+    "port": 8080,
+    "host": "localhost"
+  },
+  "metadata": {
+    "pages": [
+      {
+        "name": "Main Hub",
+        "file": "index.html",
+        "description": "Central landing page showcasing all Soma Ko apps"
+      },
+      {
+        "name": "Food Delivery",
+        "file": "food.html",
+        "description": "Restaurant delivery and food services"
+      },
+      {
+        "name": "Transportation",
+        "file": "ride.html",
+        "description": "Ride-hailing and transportation services"
+      },
+      {
+        "name": "Healthcare",
+        "file": "pharmacy.html",
+        "description": "Medicine delivery and healthcare services"
+      },
+      {
+        "name": "Property Rental",
+        "file": "rent.html",
+        "description": "Real estate and property rental services"
+      },
+      {
+        "name": "Package Delivery",
+        "file": "express.html",
+        "description": "Courier and package delivery services"
+      }
+    ],
+    "features": [
+      "Responsive Design",
+      "Interactive Animations",
+      "Accessibility Compliant",
+      "SEO Optimized",
+      "Performance Optimized",
+      "PWA Ready",
+      "Cross-browser Compatible",
+      "Mobile-first Approach"
+    ],
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript ES6+",
+      "Font Awesome",
+      "Google Fonts",
+      "Service Worker",
+      "Intersection Observer",
+      "CSS Grid",
+      "Flexbox"
+    ],
+    "themes": {
+      "food": "#ff6b6b → #ffa500",
+      "ride": "#4facfe → #00f2fe", 
+      "pharmacy": "#56ab2f → #a8e6cf",
+      "rent": "#a855f7 → #e879f9",
+      "express": "#f093fb → #f5576c"
+    }
+  },
+  "performance": {
+    "targets": {
+      "firstContentfulPaint": "< 1.5s",
+      "largestContentfulPaint": "< 2.5s",
+      "cumulativeLayoutShift": "< 0.1",
+      "firstInputDelay": "< 100ms"
+    }
+  },
+  "accessibility": {
+    "wcag": "2.1 AA",
+    "features": [
+      "Keyboard Navigation",
+      "Screen Reader Support",
+      "High Contrast Support",
+      "Reduced Motion Support",
+      "Focus Management",
+      "Semantic HTML"
+    ]
+  },
+  "seo": {
+    "features": [
+      "Meta Tags",
+      "Open Graph",
+      "Twitter Cards",
+      "Structured Data Ready",
+      "Semantic HTML",
+      "Mobile Friendly"
+    ]
+  }
+}
