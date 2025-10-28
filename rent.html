@@ -3,134 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Soma Ko Rent - Find your perfect home with verified properties, virtual tours, and hassle-free rental process.">
-    <meta name="keywords" content="property rental, apartment rental, house rental, Soma Ko Rent, real estate, property search">
+    <meta name="description" content="Soma Ko Rent - Find and rent apartments, houses, and properties easily. Browse verified listings with virtual tours and instant booking.">
+    <meta name="keywords" content="property rental, house rental, apartment rental, Soma Ko Rent, real estate, property search">
     <meta property="og:title" content="Soma Ko Rent - Find Your Perfect Home">
-    <meta property="og:description" content="Discover verified properties with virtual tours and seamless rental process. Your dream home awaits!">
+    <meta property="og:description" content="Discover amazing rental properties with verified listings, virtual tours, and instant booking.">
     <meta property="og:image" content="https://somako.org/rent-preview.jpg">
     <meta property="og:url" content="https://somako.org/rent">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="author" content="Soma Ko">
-    <title>Soma Ko Rent - Find Your Perfect Home</title>
+    <title>Soma Ko Rent - Property Rental Platform</title>
     
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="apple-touch-icon" href="assets/favicon.svg">
     
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'rent-primary': '#a855f7',
+                        'rent-secondary': '#e879f9',
+                        'rent-accent': '#8b5cf6',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'building-sway': 'buildingSway 8s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        buildingSway: {
+                            '0%, 100%': { transform: 'translateX(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateX(2px) rotate(0.5deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        .gradient-rent {
+            background: linear-gradient(135deg, #a855f7 0%, #e879f9 100%);
+        }
+        
+        .gradient-text-rent {
+            background: linear-gradient(135deg, #a855f7 0%, #e879f9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .property-card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .property-card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+        
+        .building-animate {
+            animation: buildingSway 8s ease-in-out infinite;
+        }
+        
+        .rent-glow {
+            animation: rentGlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes rentGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.6); }
+        }
+        
+        .skyline-animation {
+            animation: skylineGlow 6s ease-in-out infinite;
+        }
+        
+        @keyframes skylineGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+    </style>
 </head>
-<body class="rent-theme">
+
+<body class="font-poppins bg-gray-50 overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <div class="logo-icon rent-gradient">
-                    <i class="fas fa-home"></i>
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 glass-effect border-b border-white/20 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 gradient-rent rounded-xl flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <i class="fas fa-home text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold text-gray-800">Soma Ko Rent</span>
                 </div>
-                <span class="logo-text">Soma Ko Rent</span>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 hover:scale-105 transform">Home</a>
+                    <a href="#properties" class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 hover:scale-105 transform">Properties</a>
+                    <a href="#features" class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 hover:scale-105 transform">Features</a>
+                    <a href="#services" class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 hover:scale-105 transform">Services</a>
+                    <a href="#download" class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 hover:scale-105 transform">Download</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 focus:outline-none transition-colors duration-200">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="#properties" class="nav-link">Properties</a>
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#landlords" class="nav-link">Landlords</a>
-                <a href="#download" class="nav-link">Download</a>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 glass-effect border-t border-gray-200">
+            <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200">Home</a>
+                <a href="#properties" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200">Properties</a>
+                <a href="#features" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200">Features</a>
+                <a href="#services" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200">Services</a>
+                <a href="#download" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200">Download</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero rent-hero">
-        <div class="hero-background">
-            <div class="property-skyline">
-                <div class="building building-1"></div>
-                <div class="building building-2"></div>
-                <div class="building building-3"></div>
-                <div class="building building-4"></div>
-                <div class="building building-5"></div>
-            </div>
-            <div class="floating-properties">
-                <div class="property-icon">🏠</div>
-                <div class="property-icon">🏢</div>
-                <div class="property-icon">🏬</div>
-            </div>
+    <section class="relative min-h-screen gradient-rent flex items-center overflow-hidden">
+        <!-- City Skyline Background -->
+        <div class="absolute bottom-0 left-0 right-0 h-64 flex items-end justify-center space-x-2 px-8">
+            <div class="w-12 h-32 bg-white/10 rounded-t-lg skyline-animation building-animate" style="animation-delay: 0s;"></div>
+            <div class="w-16 h-40 bg-white/10 rounded-t-lg skyline-animation building-animate" style="animation-delay: 1s;"></div>
+            <div class="w-10 h-24 bg-white/10 rounded-t-lg skyline-animation building-animate" style="animation-delay: 2s;"></div>
+            <div class="w-14 h-36 bg-white/10 rounded-t-lg skyline-animation building-animate" style="animation-delay: 3s;"></div>
+            <div class="w-18 h-28 bg-white/10 rounded-t-lg skyline-animation building-animate" style="animation-delay: 4s;"></div>
+            <div class="w-12 h-44 bg-white/10 rounded-t-lg skyline-animation building-animate" style="animation-delay: 5s;"></div>
         </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        Find Your <span class="rent-gradient-text">Dream Home</span><br>
-                        With Confidence 🏡
+        
+        <!-- Floating Property Icons -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 text-4xl text-white/20 animate-float" style="animation-delay: 0s;">🏠</div>
+            <div class="absolute top-1/3 right-1/4 text-3xl text-white/20 animate-float" style="animation-delay: 2s;">🏢</div>
+            <div class="absolute bottom-1/3 left-1/3 text-5xl text-white/20 animate-float" style="animation-delay: 4s;">🏡</div>
+            <div class="absolute top-1/2 right-1/3 text-4xl text-white/20 animate-float" style="animation-delay: 6s;">🏘️</div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="text-center lg:text-left">
+                    <h1 class="text-5xl lg:text-7xl font-black text-white mb-6 leading-tight">
+                        Find Your <span class="gradient-text-rent">Perfect</span><br>
+                        Home 🏠
                     </h1>
-                    <p class="hero-subtitle">
-                        Discover verified properties with virtual tours, transparent pricing, and seamless rental process. From cozy apartments to luxury homes, find your perfect space.
+                    <p class="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed">
+                        Discover amazing rental properties with verified listings, virtual tours, and instant booking. Your dream home is just a tap away.
                     </p>
-                    <div class="search-box">
-                        <div class="search-input">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <input type="text" placeholder="Enter city, neighborhood, or property name...">
-                        </div>
-                        <div class="search-filters">
-                            <select>
-                                <option>Property Type</option>
-                                <option>Apartment</option>
-                                <option>House</option>
-                                <option>Studio</option>
-                            </select>
-                            <select>
-                                <option>Budget</option>
-                                <option>$500-1000</option>
-                                <option>$1000-2000</option>
-                                <option>$2000+</option>
-                            </select>
-                        </div>
-                        <button class="search-button rent-btn">
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 mb-12 justify-center lg:justify-start">
+                        <a href="https://play.google.com/store/apps/details?id=com.somako.rent" 
+                           class="inline-flex items-center justify-center px-8 py-4 bg-white text-rent-primary font-semibold rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span>Find Properties</span>
+                        </a>
+                        <button class="inline-flex items-center justify-center px-8 py-4 bg-white/20 glass-effect text-white font-semibold rounded-2xl border border-white/30 hover:bg-white/30 transform hover:scale-105 transition-all duration-300 space-x-2">
                             <i class="fas fa-search"></i>
-                            Search Properties
+                            <span>Search Now</span>
                         </button>
                     </div>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-number" data-count="25000">25K+</span>
-                            <span class="stat-label">Properties Listed</span>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-8 text-center lg:text-left">
+                        <div>
+                            <div class="text-3xl lg:text-4xl font-black text-white mb-2" data-count="10000">10K+</div>
+                            <div class="text-white/80 font-medium text-sm uppercase tracking-wider">Properties Listed</div>
                         </div>
-                        <div class="stat">
-                            <span class="stat-number" data-count="50000">50K+</span>
-                            <span class="stat-label">Happy Tenants</span>
+                        <div>
+                            <div class="text-3xl lg:text-4xl font-black text-white mb-2" data-count="50000">50K+</div>
+                            <div class="text-white/80 font-medium text-sm uppercase tracking-wider">Happy Tenants</div>
                         </div>
-                        <div class="stat">
-                            <span class="stat-number" data-count="1000">1000+</span>
-                            <span class="stat-label">Verified Landlords</span>
+                        <div>
+                            <div class="text-3xl lg:text-4xl font-black text-white mb-2" data-count="24">24</div>
+                            <div class="text-white/80 font-medium text-sm uppercase tracking-wider">Hours Support</div>
                         </div>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <div class="phone-mockup rent-phone">
-                        <div class="phone-screen">
-                            <div class="rent-interface">
-                                <div class="app-header">
-                                    <div class="location">📍 Downtown Area</div>
-                                    <div class="filter-icon">⚙️</div>
+                
+                <!-- Phone Mockup -->
+                <div class="flex justify-center lg:justify-end">
+                    <div class="relative w-80 h-[600px] bg-white rounded-[3rem] p-6 shadow-2xl rent-glow">
+                        <div class="w-full h-full bg-gradient-to-br from-purple-50 to-pink-50 rounded-[2.5rem] overflow-hidden relative">
+                            <!-- Phone Interface -->
+                            <div class="p-6 h-full flex flex-col">
+                                <!-- Header -->
+                                <div class="flex items-center justify-between mb-6">
+                                    <div class="text-sm text-gray-600">📍 Your Location</div>
+                                    <div class="text-sm text-purple-600 font-semibold">❤️ 5</div>
                                 </div>
-                                <div class="property-card">
-                                    <div class="property-image">🏠</div>
-                                    <div class="property-info">
-                                        <div class="property-title">Modern Apartment</div>
-                                        <div class="property-price">$1,200/month</div>
-                                        <div class="property-details">2 bed • 1 bath • 900 sq ft</div>
-                                        <div class="property-actions">
-                                            <button class="tour-btn">🎥 Virtual Tour</button>
-                                            <button class="save-btn">❤️</button>
-                                        </div>
+                                
+                                <!-- Search Bar -->
+                                <div class="bg-white rounded-2xl p-4 shadow-sm mb-6">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-search text-gray-400"></i>
+                                        <span class="text-gray-400 text-sm">Search properties...</span>
                                     </div>
                                 </div>
-                                <div class="map-toggle">🗺️ Map View</div>
+                                
+                                <!-- Filters -->
+                                <div class="flex space-x-3 mb-6 overflow-x-auto">
+                                    <div class="bg-purple-500 text-white px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap">🏠 Houses</div>
+                                    <div class="bg-gray-200 text-gray-600 px-4 py-2 rounded-full text-xs whitespace-nowrap">🏢 Apartments</div>
+                                    <div class="bg-gray-200 text-gray-600 px-4 py-2 rounded-full text-xs whitespace-nowrap">🏘️ Condos</div>
+                                </div>
+                                
+                                <!-- Property Cards -->
+                                <div class="flex-1 space-y-4">
+                                    <div class="bg-white rounded-2xl p-4 shadow-sm">
+                                        <div class="bg-purple-100 rounded-xl h-24 mb-3 relative">
+                                            <div class="absolute top-2 right-2 bg-white rounded-full w-6 h-6 flex items-center justify-center">
+                                                <i class="fas fa-heart text-red-500 text-xs"></i>
+                                            </div>
+                                        </div>
+                                        <div class="text-sm font-semibold mb-1">Modern Apartment</div>
+                                        <div class="text-xs text-gray-500 mb-2">📍 Downtown • 2 bed, 1 bath</div>
+                                        <div class="text-lg font-bold text-purple-600">$1,200/mo</div>
+                                    </div>
+                                    
+                                    <div class="bg-white rounded-2xl p-4 shadow-sm">
+                                        <div class="bg-pink-100 rounded-xl h-24 mb-3 relative">
+                                            <div class="absolute top-2 right-2 bg-white rounded-full w-6 h-6 flex items-center justify-center">
+                                                <i class="far fa-heart text-gray-400 text-xs"></i>
+                                            </div>
+                                        </div>
+                                        <div class="text-sm font-semibold mb-1">Cozy House</div>
+                                        <div class="text-xs text-gray-500 mb-2">📍 Suburbs • 3 bed, 2 bath</div>
+                                        <div class="text-lg font-bold text-purple-600">$1,800/mo</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -139,432 +275,297 @@
         </div>
     </section>
 
-    <!-- Property Types -->
-    <section id="properties" class="property-types-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Explore <span class="rent-gradient-text">Property Types</span></h2>
-                <p class="section-subtitle">Find the perfect space that matches your lifestyle and budget.</p>
+    <!-- Properties Section -->
+    <section id="properties" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+                    Featured <span class="gradient-text-rent">Properties</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Explore our handpicked selection of premium rental properties.
+                </p>
             </div>
-            <div class="property-types-grid">
-                <div class="property-type-card">
-                    <div class="property-type-icon">🏠</div>
-                    <h3>Apartments</h3>
-                    <p>Modern apartments in prime locations with all amenities</p>
-                    <div class="property-stats">
-                        <span>🏢 12,500+ listings</span>
-                        <span>💰 $800-3000/month</span>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Property 1 -->
+                <div class="property-card-hover bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                    <div class="h-48 bg-gradient-to-br from-purple-200 to-pink-200 relative">
+                        <div class="absolute top-4 right-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg">
+                            <i class="fas fa-heart text-red-500"></i>
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-white/90 glass-effect px-3 py-1 rounded-full text-sm font-semibold">
+                            Virtual Tour
+                        </div>
                     </div>
-                    <div class="popular-badge">Most Popular</div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Modern Downtown Apartment</h3>
+                        <p class="text-gray-600 mb-4">📍 Downtown District • 2 bed, 2 bath • 950 sq ft</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-2xl font-black text-purple-600">$1,200/mo</div>
+                            <div class="flex items-center text-yellow-500">
+                                <span class="mr-1">⭐</span>
+                                <span class="text-gray-600 text-sm">4.8 (24 reviews)</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2 mb-4 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-wifi text-purple-500 mr-2"></i>
+                                <span>Free WiFi</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-car text-purple-500 mr-2"></i>
+                                <span>Parking Included</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-dumbbell text-purple-500 mr-2"></i>
+                                <span>Gym Access</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-purple-500 text-white py-3 rounded-xl font-semibold hover:bg-purple-600 transition-colors">
+                            View Details
+                        </button>
+                    </div>
                 </div>
-                <div class="property-type-card">
-                    <div class="property-type-icon">🏡</div>
-                    <h3>Houses</h3>
-                    <p>Spacious family homes with gardens and parking</p>
-                    <div class="property-stats">
-                        <span>🏘️ 8,200+ listings</span>
-                        <span>💰 $1500-5000/month</span>
+                
+                <!-- Property 2 -->
+                <div class="property-card-hover bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                    <div class="h-48 bg-gradient-to-br from-blue-200 to-purple-200 relative">
+                        <div class="absolute top-4 right-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg">
+                            <i class="far fa-heart text-gray-400"></i>
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            New Listing
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Luxury Penthouse</h3>
+                        <p class="text-gray-600 mb-4">📍 Uptown • 3 bed, 3 bath • 1400 sq ft</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-2xl font-black text-purple-600">$2,500/mo</div>
+                            <div class="flex items-center text-yellow-500">
+                                <span class="mr-1">⭐</span>
+                                <span class="text-gray-600 text-sm">4.9 (18 reviews)</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2 mb-4 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-swimming-pool text-purple-500 mr-2"></i>
+                                <span>Pool & Spa</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-concierge-bell text-purple-500 mr-2"></i>
+                                <span>Concierge</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-city text-purple-500 mr-2"></i>
+                                <span>City View</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-purple-500 text-white py-3 rounded-xl font-semibold hover:bg-purple-600 transition-colors">
+                            View Details
+                        </button>
                     </div>
                 </div>
-                <div class="property-type-card">
-                    <div class="property-type-icon">🏢</div>
-                    <h3>Studios</h3>
-                    <p>Compact and efficient living spaces for young professionals</p>
-                    <div class="property-stats">
-                        <span>🏬 3,100+ listings</span>
-                        <span>💰 $500-1200/month</span>
+                
+                <!-- Property 3 -->
+                <div class="property-card-hover bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                    <div class="h-48 bg-gradient-to-br from-green-200 to-blue-200 relative">
+                        <div class="absolute top-4 right-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg">
+                            <i class="far fa-heart text-gray-400"></i>
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Pet Friendly
+                        </div>
                     </div>
-                </div>
-                <div class="property-type-card">
-                    <div class="property-type-icon">🏨</div>
-                    <h3>Luxury Condos</h3>
-                    <p>Premium properties with concierge and luxury amenities</p>
-                    <div class="property-stats">
-                        <span>🌟 1,200+ listings</span>
-                        <span>💰 $2500-8000/month</span>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Cozy Family House</h3>
+                        <p class="text-gray-600 mb-4">📍 Suburbs • 4 bed, 3 bath • 1800 sq ft</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-2xl font-black text-purple-600">$1,800/mo</div>
+                            <div class="flex items-center text-yellow-500">
+                                <span class="mr-1">⭐</span>
+                                <span class="text-gray-600 text-sm">4.7 (31 reviews)</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2 mb-4 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-tree text-purple-500 mr-2"></i>
+                                <span>Garden</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-paw text-purple-500 mr-2"></i>
+                                <span>Pet Friendly</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-graduation-cap text-purple-500 mr-2"></i>
+                                <span>Near Schools</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-purple-500 text-white py-3 rounded-xl font-semibold hover:bg-purple-600 transition-colors">
+                            View Details
+                        </button>
                     </div>
-                    <div class="premium-badge">Premium</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="features-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Why Choose <span class="rent-gradient-text">Soma Ko Rent</span>?</h2>
-                <p class="section-subtitle">Experience a revolutionary approach to property rental with cutting-edge features.</p>
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+                    Why Choose <span class="gradient-text-rent">Soma Ko Rent</span>?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Everything you need to find and rent your perfect home.
+                </p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon rent-gradient">
-                        <i class="fas fa-vr-cardboard"></i>
-                    </div>
-                    <h3>Virtual Tours</h3>
-                    <p>Explore properties from home with immersive 360° virtual tours and high-quality photos.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon rent-gradient">
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-rent rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-shield-check"></i>
                     </div>
-                    <h3>Verified Properties</h3>
-                    <p>All properties are verified with accurate photos, details, and legal documentation.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Verified Listings</h3>
+                    <p class="text-gray-600 leading-relaxed">All properties are verified with authentic photos, accurate descriptions, and verified landlords.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon rent-gradient">
-                        <i class="fas fa-handshake"></i>
+                
+                <!-- Feature 2 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-rent rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-vr-cardboard"></i>
                     </div>
-                    <h3>Instant Booking</h3>
-                    <p>Book properties instantly with digital lease agreements and secure online payments.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Virtual Tours</h3>
+                    <p class="text-gray-600 leading-relaxed">Explore properties with immersive 360° virtual tours from the comfort of your home.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon rent-gradient">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Maintenance Support</h3>
-                    <p>24/7 maintenance request system with quick response and professional service.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon rent-gradient">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>Transparent Pricing</h3>
-                    <p>No hidden fees, clear cost breakdown, and rent payment tracking with receipts.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon rent-gradient">
-                        <i class="fas fa-user-friends"></i>
-                    </div>
-                    <h3>Roommate Matching</h3>
-                    <p>Find compatible roommates with our smart matching algorithm and background checks.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">How to <span class="rent-gradient-text">Find Your Home</span></h2>
-                <p class="section-subtitle">Simple steps to discover and secure your perfect rental property.</p>
-            </div>
-            <div class="steps-container">
-                <div class="step">
-                    <div class="step-number">01</div>
-                    <div class="step-icon rent-gradient">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>Search & Filter</h3>
-                    <p>Use advanced filters to find properties that match your budget, location preferences, and amenities.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">02</div>
-                    <div class="step-icon rent-gradient">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Virtual Tour</h3>
-                    <p>Take immersive virtual tours, view detailed photos, and check property specifications online.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">03</div>
-                    <div class="step-icon rent-gradient">
+                
+                <!-- Feature 3 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-rent rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-calendar-check"></i>
                     </div>
-                    <h3>Schedule Visit</h3>
-                    <p>Book in-person visits at your convenience or proceed with virtual-only viewing if satisfied.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Instant Booking</h3>
+                    <p class="text-gray-600 leading-relaxed">Book properties instantly with our streamlined application process and digital contracts.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">04</div>
-                    <div class="step-icon rent-gradient">
-                        <i class="fas fa-file-signature"></i>
+                
+                <!-- Feature 4 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-rent rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-filter"></i>
                     </div>
-                    <h3>Secure & Move</h3>
-                    <p>Complete digital paperwork, make secure payments, and get ready to move into your new home.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Smart Filters</h3>
+                    <p class="text-gray-600 leading-relaxed">Find exactly what you're looking for with advanced filters for location, price, amenities, and more.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- For Landlords -->
-    <section id="landlords" class="landlords-section">
-        <div class="container">
-            <div class="landlords-content">
-                <div class="landlords-visual">
-                    <div class="landlord-dashboard">
-                        <div class="dashboard-header">
-                            <h4>Landlord Dashboard</h4>
-                            <div class="earnings-display">
-                                <span class="amount">$12,450</span>
-                                <span class="period">This Month</span>
-                            </div>
-                        </div>
-                        <div class="property-stats">
-                            <div class="stat-item">
-                                <span class="stat-value">15</span>
-                                <span class="stat-label">Properties</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">12</span>
-                                <span class="stat-label">Occupied</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">98%</span>
-                                <span class="stat-label">Occupancy</span>
-                            </div>
-                        </div>
-                        <div class="recent-activities">
-                            <h5>Recent Activities</h5>
-                            <div class="activity">💰 Rent received - Apt 4B</div>
-                            <div class="activity">🔧 Maintenance request - Apt 2A</div>
-                            <div class="activity">👤 New tenant inquiry</div>
-                        </div>
+                
+                <!-- Feature 5 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-rent rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-headset"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">24/7 Support</h3>
+                    <p class="text-gray-600 leading-relaxed">Get help anytime with our dedicated customer support team available around the clock.</p>
                 </div>
-                <div class="landlords-text">
-                    <h2 class="section-title">List Your <span class="rent-gradient-text">Property</span></h2>
-                    <p class="section-subtitle">Join thousands of landlords who trust Soma Ko Rent to manage their properties efficiently.</p>
-                    <div class="landlord-benefits">
-                        <div class="benefit">
-                            <i class="fas fa-chart-line"></i>
-                            <div class="benefit-content">
-                                <h3>Maximize Occupancy</h3>
-                                <p>Reach verified tenants and reduce vacancy periods with our extensive user base.</p>
-                            </div>
-                        </div>
-                        <div class="benefit">
-                            <i class="fas fa-shield-alt"></i>
-                            <div class="benefit-content">
-                                <h3>Tenant Screening</h3>
-                                <p>Comprehensive background checks and credit verification for all potential tenants.</p>
-                            </div>
-                        </div>
-                        <div class="benefit">
-                            <i class="fas fa-mobile-alt"></i>
-                            <div class="benefit-content">
-                                <h3>Easy Management</h3>
-                                <p>Manage all properties, collect rent, and handle maintenance requests from one dashboard.</p>
-                            </div>
-                        </div>
-                        <div class="benefit">
-                            <i class="fas fa-handshake"></i>
-                            <div class="benefit-content">
-                                <h3>Legal Support</h3>
-                                <p>Access to legal templates, lease agreements, and professional support when needed.</p>
-                            </div>
-                        </div>
+                
+                <!-- Feature 6 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-rent rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-star"></i>
                     </div>
-                    <div class="landlord-cta">
-                        <a href="#" class="btn btn-primary rent-btn">
-                            <i class="fas fa-plus"></i>
-                            List Your Property
-                        </a>
-                        <a href="#" class="btn btn-outline">
-                            <i class="fas fa-info-circle"></i>
-                            Learn More
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">What Our <span class="rent-gradient-text">Users</span> Say</h2>
-                <p class="section-subtitle">Stories from tenants and landlords who found success with Soma Ko Rent.</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"Found my dream apartment in just 2 days! The virtual tour was so detailed, I knew it was perfect before even visiting. The booking process was seamless."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👩‍💻</div>
-                        <div class="author-info">
-                            <h4>Emma Rodriguez</h4>
-                            <span>Software Engineer</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"As a landlord, this platform has been a game-changer. I've reduced vacancy periods by 60% and the tenant quality is exceptional thanks to their screening process."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👨‍💼</div>
-                        <div class="author-info">
-                            <h4>David Park</h4>
-                            <span>Property Owner</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"The roommate matching feature helped me find the perfect flatmate. We've been living together for 8 months now and it's been amazing!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👩‍🎓</div>
-                        <div class="author-info">
-                            <h4>Jessica Chen</h4>
-                            <span>Graduate Student</span>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Reviews & Ratings</h3>
+                    <p class="text-gray-600 leading-relaxed">Make informed decisions with authentic reviews and ratings from previous tenants.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Download Section -->
-    <section id="download" class="download-section rent-download">
-        <div class="container">
-            <div class="download-content">
-                <div class="download-text">
-                    <h2 class="section-title">Download <span class="rent-gradient-text">Soma Ko Rent</span></h2>
-                    <p class="section-subtitle">Start your property search journey today and find your perfect home.</p>
-                    <div class="app-store-buttons">
-                        <a href="https://play.google.com/store/apps/details?id=com.somako.rent" class="store-button">
-                            <img src="assets/google-play-badge.svg" alt="Get it on Google Play">
-                        </a>
-                        <a href="https://apps.apple.com/app/soma-ko-rent/id123456789" class="store-button">
-                            <img src="assets/app-store-badge.svg" alt="Download on the App Store">
-                        </a>
-                    </div>
-                    <div class="download-features">
-                        <div class="download-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Verified properties</span>
-                        </div>
-                        <div class="download-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Virtual tours</span>
-                        </div>
-                        <div class="download-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Instant booking</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="download-visual">
-                    <div class="phone-showcase">
-                        <div class="download-phone">
-                            <div class="phone-screen">
-                                <div class="app-preview">
-                                    <div class="preview-header">
-                                        <i class="fas fa-home"></i>
-                                        <span>Soma Ko Rent</span>
-                                    </div>
-                                    <div class="search-preview">
-                                        <div class="search-box-preview">
-                                            <i class="fas fa-search"></i>
-                                            <span>Find your dream home...</span>
-                                        </div>
-                                    </div>
-                                    <div class="property-preview">
-                                        <div class="property-image-preview">🏠</div>
-                                        <div class="property-details-preview">
-                                            <span class="property-name">Luxury Apartment</span>
-                                            <span class="property-price">$1,800/month</span>
-                                            <span class="property-location">Downtown • 2 bed</span>
-                                        </div>
-                                        <div class="quick-actions">
-                                            <button class="action-btn">🎥 Tour</button>
-                                            <button class="action-btn">❤️ Save</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section id="download" class="py-20 gradient-rent text-white relative overflow-hidden">
+        <!-- Background Animation -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 text-4xl text-white/20 animate-float" style="animation-delay: 0s;">🏠</div>
+            <div class="absolute top-1/3 right-1/4 text-3xl text-white/20 animate-float" style="animation-delay: 2s;">🏢</div>
+            <div class="absolute bottom-1/3 left-1/3 text-5xl text-white/20 animate-float" style="animation-delay: 4s;">🏡</div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl lg:text-5xl font-black mb-6">Ready to Find Your Home?</h2>
+            <p class="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
+                Download Soma Ko Rent and discover thousands of verified rental properties with virtual tours and instant booking.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="#" class="transform hover:scale-105 transition-transform duration-300">
+                    <img src="assets/google-play-badge.svg" alt="Get it on Google Play" class="h-16 hover:opacity-90 transition-opacity">
+                </a>
+                <a href="#" class="transform hover:scale-105 transition-transform duration-300">
+                    <img src="assets/app-store-badge.svg" alt="Download on the App Store" class="h-16 hover:opacity-90 transition-opacity">
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <div class="logo-icon rent-gradient">
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 gradient-rent rounded-lg flex items-center justify-center text-white">
                             <i class="fas fa-home"></i>
                         </div>
-                        <span class="logo-text">Soma Ko Rent</span>
+                        <span class="text-xl font-bold">Soma Ko Rent</span>
                     </div>
-                    <p class="footer-description">Your trusted partner in finding the perfect rental property with verified listings and seamless experiences.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Find and rent amazing properties with verified listings and virtual tours.
+                    </p>
                 </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#properties">Properties</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#landlords">For Landlords</a></li>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Property Types</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Apartments</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Houses</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Condos</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Studio</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Other Apps</h3>
-                    <ul class="footer-links">
-                        <li><a href="food.html">Soma Ko Food</a></li>
-                        <li><a href="ride.html">Soma Ko Ride</a></li>
-                        <li><a href="pharmacy.html">Soma Ko Pharmacy</a></li>
-                        <li><a href="express.html">Soma Ko Express</a></li>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Virtual Tours</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">List Property</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Property Types</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Apartments</a></li>
-                        <li><a href="#">Houses</a></li>
-                        <li><a href="#">Studios</a></li>
-                        <li><a href="#">Luxury Condos</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Contact</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>rent@somako.org</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+1 (555) 123-RENT</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Available in 50+ cities</span>
-                        </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="footer-divider"></div>
-                <div class="footer-bottom-content">
-                    <p class="copyright">&copy; 2025 Soma Ko Rent. All rights reserved.</p>
-                    <div class="footer-bottom-links">
-                        <a href="#">Privacy</a>
-                        <a href="#">Terms</a>
-                        <a href="#">Fair Housing</a>
-                    </div>
-                </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Soma Ko Rent. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- JavaScript -->
+    <script src="script-tailwind.js"></script>
 </body>
 </html>

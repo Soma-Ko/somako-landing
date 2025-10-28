@@ -3,238 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Soma Ko - Your complete lifestyle app ecosystem. Food delivery, ride-hailing, pharmacy, rentals, and express delivery all in one platform.">
-    <meta name="keywords" content="soma ko, food delivery, ride hailing, pharmacy, rental, express delivery, lifestyle apps">
-    <meta property="og:title" content="Soma Ko - Complete Lifestyle App Ecosystem">
-    <meta property="og:description" content="Everything you need in one place: Food, Rides, Pharmacy, Rentals & Express Delivery. Download the Soma Ko apps today!">
-    <meta property="og:image" content="https://somako.org/soma-ko-preview.jpg">
+    <meta name="description" content="Soma Ko - Your comprehensive lifestyle platform featuring Ride, Food, Pharmacy, Rent, and Express delivery services. Everything you need in one ecosystem.">
+    <meta name="keywords" content="Soma Ko, ride hailing, food delivery, pharmacy, rental properties, express delivery, lifestyle app">
+    <meta property="og:title" content="Soma Ko - Complete Lifestyle Ecosystem">
+    <meta property="og:description" content="Discover all Soma Ko services: Ride, Food, Pharmacy, Rent, and Express delivery in one unified platform.">
+    <meta property="og:image" content="https://somako.org/preview.jpg">
     <meta property="og:url" content="https://somako.org">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="author" content="Soma Ko">
-    <title>Soma Ko - Complete Lifestyle App Ecosystem</title>
+    <title>Soma Ko - Complete Lifestyle Ecosystem</title>
     
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="apple-touch-icon" href="assets/favicon.svg">
     
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'ride-primary': '#4facfe',
+                        'ride-secondary': '#00f2fe',
+                        'food-primary': '#ff6b6b',
+                        'food-secondary': '#ffa500',
+                        'pharmacy-primary': '#56ab2f',
+                        'pharmacy-secondary': '#a8e6cf',
+                        'rent-primary': '#a855f7',
+                        'rent-secondary': '#e879f9',
+                        'express-primary': '#f093fb',
+                        'express-secondary': '#f5576c',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'orbit': 'orbit 20s linear infinite',
+                        'orbit-reverse': 'orbitReverse 25s linear infinite',
+                        'glow': 'glow 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        orbit: {
+                            '0%': { transform: 'rotate(0deg) translateX(150px) rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg) translateX(150px) rotate(-360deg)' },
+                        },
+                        orbitReverse: {
+                            '0%': { transform: 'rotate(0deg) translateX(120px) rotate(0deg)' },
+                            '100%': { transform: 'rotate(-360deg) translateX(120px) rotate(360deg)' },
+                        },
+                        glow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(79, 172, 254, 0.3)' },
+                            '33%': { boxShadow: '0 0 30px rgba(255, 107, 107, 0.4)' },
+                            '66%': { boxShadow: '0 0 25px rgba(86, 171, 47, 0.35)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        .gradient-main {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-ride {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .gradient-food {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+        }
+        
+        .gradient-pharmacy {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+        }
+        
+        .gradient-rent {
+            background: linear-gradient(135deg, #a855f7 0%, #e879f9 100%);
+        }
+        
+        .gradient-express {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .app-card {
+            transition: all 0.4s ease;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+        
+        .ecosystem-orbit {
+            position: relative;
+        }
+        
+        .orbit-item {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .orbit-1 { animation: orbit 20s linear infinite; }
+        .orbit-2 { animation: orbit 20s linear infinite; animation-delay: -4s; }
+        .orbit-3 { animation: orbit 20s linear infinite; animation-delay: -8s; }
+        .orbit-4 { animation: orbit 20s linear infinite; animation-delay: -12s; }
+        .orbit-5 { animation: orbit 20s linear infinite; animation-delay: -16s; }
+    </style>
 </head>
-<body>
+
+<body class="font-poppins bg-gray-50 overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <div class="logo-icon">
-                    <i class="fas fa-cube"></i>
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 glass-effect border-b border-white/20 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 gradient-main rounded-xl flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <i class="fas fa-layer-group text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold text-gray-800">Soma Ko</span>
                 </div>
-                <span class="logo-text">Soma Ko</span>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#apps" class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 hover:scale-105 transform">Apps</a>
+                    <a href="#features" class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 hover:scale-105 transform">Features</a>
+                    <a href="#ecosystem" class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 hover:scale-105 transform">Ecosystem</a>
+                    <a href="#download" class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 hover:scale-105 transform">Download</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 focus:outline-none transition-colors duration-200">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <div class="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#apps" class="nav-link">Our Apps</a>
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#download" class="nav-link">Download</a>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 glass-effect border-t border-gray-200">
+            <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="#apps" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200">Apps</a>
+                <a href="#features" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200">Features</a>
+                <a href="#ecosystem" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200">Ecosystem</a>
+                <a href="#download" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200">Download</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="hero-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
+    <section class="relative min-h-screen gradient-main flex items-center overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 pointer-events-none">
+            <!-- Floating Elements -->
+            <div class="absolute top-1/4 left-1/4 w-20 h-20 bg-white/10 rounded-full animate-float" style="animation-delay: 0s;"></div>
+            <div class="absolute top-1/3 right-1/4 w-16 h-16 bg-white/10 rounded-full animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-1/3 left-1/3 w-12 h-12 bg-white/10 rounded-full animate-float" style="animation-delay: 4s;"></div>
+            
+            <!-- App Icons Orbiting -->
+            <div class="ecosystem-orbit absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div class="orbit-item orbit-1 gradient-ride">🚗</div>
+                <div class="orbit-item orbit-2 gradient-food">🍕</div>
+                <div class="orbit-item orbit-3 gradient-pharmacy">💊</div>
+                <div class="orbit-item orbit-4 gradient-rent">🏠</div>
+                <div class="orbit-item orbit-5 gradient-express">⚡</div>
             </div>
         </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        Your Complete <span class="gradient-text">Lifestyle</span><br>
-                        App Ecosystem 🌟
-                    </h1>
-                    <p class="hero-subtitle">
-                        From food delivery to ride-hailing, pharmacy to rentals - Soma Ko brings everything you need into one powerful, integrated platform.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#apps" class="btn btn-primary">
-                            <i class="fas fa-rocket"></i>
-                            Explore Our Apps
-                        </a>
-                        <a href="#download" class="btn btn-secondary">
-                            <i class="fas fa-download"></i>
-                            Download Now
-                        </a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-number" data-count="100000">100K+</span>
-                            <span class="stat-label">Active Users</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number" data-count="5">5</span>
-                            <span class="stat-label">Powerful Apps</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number" data-count="2000">2K+</span>
-                            <span class="stat-label">Partners</span>
-                        </div>
-                    </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+            <h1 class="text-5xl lg:text-8xl font-black text-white mb-8 leading-tight">
+                Your Complete<br>
+                <span class="bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">Lifestyle</span><br>
+                Ecosystem 🌟
+            </h1>
+            <p class="text-xl lg:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed">
+                Discover the power of five integrated apps: Transportation, Food Delivery, Healthcare, Property Rental, and Express Courier – all in one seamless platform designed for modern living.
+            </p>
+            
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+                <a href="#apps" class="inline-flex items-center justify-center px-10 py-5 bg-white text-purple-600 font-bold rounded-3xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 space-x-3 text-lg">
+                    <i class="fas fa-rocket"></i>
+                    <span>Explore All Apps</span>
+                </a>
+                <button class="inline-flex items-center justify-center px-10 py-5 bg-white/20 glass-effect text-white font-bold rounded-3xl border border-white/30 hover:bg-white/30 transform hover:scale-105 transition-all duration-300 space-x-3 text-lg">
+                    <i class="fas fa-play"></i>
+                    <span>Watch Demo</span>
+                </button>
+            </div>
+            
+            <!-- Global Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <div class="text-4xl lg:text-5xl font-black text-white mb-2" data-count="1000000">1M+</div>
+                    <div class="text-white/80 font-medium text-sm uppercase tracking-wider">Active Users</div>
                 </div>
-                <div class="hero-visual">
-                    <div class="phone-showcase">
-                        <div class="phone-mockup main-phone">
-                            <div class="phone-screen">
-                                <div class="app-grid">
-                                    <div class="app-icon food-app"><i class="fas fa-utensils"></i></div>
-                                    <div class="app-icon ride-app"><i class="fas fa-car"></i></div>
-                                    <div class="app-icon pharmacy-app"><i class="fas fa-pills"></i></div>
-                                    <div class="app-icon rent-app"><i class="fas fa-home"></i></div>
-                                    <div class="app-icon express-app"><i class="fas fa-shipping-fast"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="floating-elements">
-                            <div class="floating-icon food-float"><i class="fas fa-pizza-slice"></i></div>
-                            <div class="floating-icon ride-float"><i class="fas fa-route"></i></div>
-                            <div class="floating-icon pharmacy-float"><i class="fas fa-heartbeat"></i></div>
-                            <div class="floating-icon rent-float"><i class="fas fa-key"></i></div>
-                            <div class="floating-icon express-float"><i class="fas fa-box"></i></div>
-                        </div>
-                    </div>
+                <div class="text-center">
+                    <div class="text-4xl lg:text-5xl font-black text-white mb-2" data-count="50">50+</div>
+                    <div class="text-white/80 font-medium text-sm uppercase tracking-wider">Cities</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl lg:text-5xl font-black text-white mb-2" data-count="10000000">10M+</div>
+                    <div class="text-white/80 font-medium text-sm uppercase tracking-wider">Orders Completed</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl lg:text-5xl font-black text-white mb-2" data-count="24">24/7</div>
+                    <div class="text-white/80 font-medium text-sm uppercase tracking-wider">Available</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Apps Section -->
-    <section id="apps" class="our-apps">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our App <span class="gradient-text">Ecosystem</span></h2>
-                <p class="section-subtitle">Five powerful apps designed to make your life easier, faster, and more convenient.</p>
+    <!-- Apps Section -->
+    <section id="apps" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl lg:text-6xl font-black text-gray-900 mb-8">
+                    Five Apps, <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">One Platform</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    Experience the convenience of having all your essential services in one unified ecosystem.
+                </p>
             </div>
-            <div class="apps-grid">
-                <!-- Food App -->
-                <div class="app-card" data-app="food">
-                    <div class="app-card-header">
-                        <div class="app-icon-large food-gradient">
-                            <i class="fas fa-utensils"></i>
+            
+            <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                <!-- Soma Ko Ride -->
+                <div class="app-card lg:col-span-1 xl:col-span-1 bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group">
+                    <div class="gradient-ride p-8 text-white relative overflow-hidden">
+                        <div class="absolute top-4 right-4 text-6xl opacity-20">🚗</div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <h3 class="text-2xl font-black mb-3">Soma Ko Ride</h3>
+                            <p class="text-white/90 mb-6">Safe, reliable transportation with verified drivers and real-time tracking.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">🚗 10K+ Drivers</span>
+                                <a href="ride-tailwind.html" class="inline-flex items-center text-white hover:text-blue-100 transition-colors">
+                                    <span class="mr-2">Learn More</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
-                        <h3>Soma Ko Food</h3>
-                        <p class="app-tagline">Delicious meals delivered fresh</p>
-                    </div>
-                    <div class="app-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> 500+ Restaurants</li>
-                            <li><i class="fas fa-check"></i> 30-min delivery</li>
-                            <li><i class="fas fa-check"></i> Real-time tracking</li>
-                            <li><i class="fas fa-check"></i> Multiple payment options</li>
-                        </ul>
-                    </div>
-                    <div class="app-actions">
-                        <a href="food.html" class="btn btn-outline">Learn More</a>
-                        <a href="#" class="btn btn-primary food-btn">Download</a>
                     </div>
                 </div>
-
-                <!-- Ride App -->
-                <div class="app-card" data-app="ride">
-                    <div class="app-card-header">
-                        <div class="app-icon-large ride-gradient">
-                            <i class="fas fa-car"></i>
+                
+                <!-- Soma Ko Food -->
+                <div class="app-card lg:col-span-1 xl:col-span-1 bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group">
+                    <div class="gradient-food p-8 text-white relative overflow-hidden">
+                        <div class="absolute top-4 right-4 text-6xl opacity-20">🍕</div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3 class="text-2xl font-black mb-3">Soma Ko Food</h3>
+                            <p class="text-white/90 mb-6">Delicious meals from your favorite restaurants delivered hot and fresh.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">🍕 500+ Restaurants</span>
+                                <a href="food-tailwind.html" class="inline-flex items-center text-white hover:text-red-100 transition-colors">
+                                    <span class="mr-2">Learn More</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
-                        <h3>Soma Ko Ride</h3>
-                        <p class="app-tagline">Safe & reliable transportation</p>
-                    </div>
-                    <div class="app-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> 24/7 availability</li>
-                            <li><i class="fas fa-check"></i> Verified drivers</li>
-                            <li><i class="fas fa-check"></i> Multiple vehicle types</li>
-                            <li><i class="fas fa-check"></i> Affordable pricing</li>
-                        </ul>
-                    </div>
-                    <div class="app-actions">
-                        <a href="ride.html" class="btn btn-outline">Learn More</a>
-                        <a href="#" class="btn btn-primary ride-btn">Download</a>
                     </div>
                 </div>
-
-                <!-- Pharmacy App -->
-                <div class="app-card" data-app="pharmacy">
-                    <div class="app-card-header">
-                        <div class="app-icon-large pharmacy-gradient">
-                            <i class="fas fa-pills"></i>
+                
+                <!-- Soma Ko Pharmacy -->
+                <div class="app-card lg:col-span-2 xl:col-span-1 bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group">
+                    <div class="gradient-pharmacy p-8 text-white relative overflow-hidden">
+                        <div class="absolute top-4 right-4 text-6xl opacity-20">💊</div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                                <i class="fas fa-pills"></i>
+                            </div>
+                            <h3 class="text-2xl font-black mb-3">Soma Ko Pharmacy</h3>
+                            <p class="text-white/90 mb-6">Licensed pharmacy with prescription medicines and health products delivered safely.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">💊 5K+ Medicines</span>
+                                <a href="pharmacy-tailwind.html" class="inline-flex items-center text-white hover:text-green-100 transition-colors">
+                                    <span class="mr-2">Learn More</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
-                        <h3>Soma Ko Pharmacy</h3>
-                        <p class="app-tagline">Healthcare at your fingertips</p>
-                    </div>
-                    <div class="app-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Prescription delivery</li>
-                            <li><i class="fas fa-check"></i> Online consultations</li>
-                            <li><i class="fas fa-check"></i> Medicine reminders</li>
-                            <li><i class="fas fa-check"></i> Health tracking</li>
-                        </ul>
-                    </div>
-                    <div class="app-actions">
-                        <a href="pharmacy.html" class="btn btn-outline">Learn More</a>
-                        <a href="#" class="btn btn-primary pharmacy-btn">Download</a>
                     </div>
                 </div>
-
-                <!-- Rent App -->
-                <div class="app-card" data-app="rent">
-                    <div class="app-card-header">
-                        <div class="app-icon-large rent-gradient">
-                            <i class="fas fa-home"></i>
+                
+                <!-- Soma Ko Rent -->
+                <div class="app-card lg:col-span-1 xl:col-span-1 bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group">
+                    <div class="gradient-rent p-8 text-white relative overflow-hidden">
+                        <div class="absolute top-4 right-4 text-6xl opacity-20">🏠</div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3 class="text-2xl font-black mb-3">Soma Ko Rent</h3>
+                            <p class="text-white/90 mb-6">Find and rent verified properties with virtual tours and instant booking.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">🏠 10K+ Properties</span>
+                                <a href="rent-tailwind.html" class="inline-flex items-center text-white hover:text-purple-100 transition-colors">
+                                    <span class="mr-2">Learn More</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
-                        <h3>Soma Ko Rent</h3>
-                        <p class="app-tagline">Find your perfect space</p>
-                    </div>
-                    <div class="app-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Verified properties</li>
-                            <li><i class="fas fa-check"></i> Virtual tours</li>
-                            <li><i class="fas fa-check"></i> Instant booking</li>
-                            <li><i class="fas fa-check"></i> Secure payments</li>
-                        </ul>
-                    </div>
-                    <div class="app-actions">
-                        <a href="rent.html" class="btn btn-outline">Learn More</a>
-                        <a href="#" class="btn btn-primary rent-btn">Download</a>
                     </div>
                 </div>
-
-                <!-- Express Delivery App -->
-                <div class="app-card" data-app="express">
-                    <div class="app-card-header">
-                        <div class="app-icon-large express-gradient">
-                            <i class="fas fa-shipping-fast"></i>
+                
+                <!-- Soma Ko Express -->
+                <div class="app-card lg:col-span-1 xl:col-span-1 bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group">
+                    <div class="gradient-express p-8 text-white relative overflow-hidden">
+                        <div class="absolute top-4 right-4 text-6xl opacity-20">⚡</div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3 class="text-2xl font-black mb-3">Soma Ko Express</h3>
+                            <p class="text-white/90 mb-6">Lightning-fast courier service for packages and documents with real-time tracking.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">⚡ 2H Delivery</span>
+                                <a href="express-tailwind.html" class="inline-flex items-center text-white hover:text-pink-100 transition-colors">
+                                    <span class="mr-2">Learn More</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
-                        <h3>Soma Ko Express</h3>
-                        <p class="app-tagline">Lightning-fast delivery</p>
-                    </div>
-                    <div class="app-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Same-day delivery</li>
-                            <li><i class="fas fa-check"></i> Package tracking</li>
-                            <li><i class="fas fa-check"></i> Secure handling</li>
-                            <li><i class="fas fa-check"></i> Competitive rates</li>
-                        </ul>
-                    </div>
-                    <div class="app-actions">
-                        <a href="express.html" class="btn btn-outline">Learn More</a>
-                        <a href="#" class="btn btn-primary express-btn">Download</a>
                     </div>
                 </div>
             </div>
@@ -242,109 +368,144 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="features-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Why Choose <span class="gradient-text">Soma Ko</span>?</h2>
-                <p class="section-subtitle">We're revolutionizing how you access essential services through our integrated app ecosystem.</p>
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+                    Why Choose <span class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Soma Ko</span>?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Experience the benefits of our unified platform designed for modern convenience.
+                </p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Trusted & Secure</h3>
-                    <p>Your data and transactions are protected with bank-level security and encryption.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>24/7 Support</h3>
-                    <p>Round-the-clock customer service across all our platforms for all your needs.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Premium Quality</h3>
-                    <p>Vetted partners and quality assurance across all services for the best experience.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-main rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Seamless Integration</h3>
-                    <p>All apps work together seamlessly with shared accounts and unified experiences.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">One App, Five Services</h3>
+                    <p class="text-gray-600 leading-relaxed">Access all five services from a single app with unified account management and seamless switching.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
+                
+                <!-- Feature 2 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-main rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Unified Rewards</h3>
+                    <p class="text-gray-600 leading-relaxed">Earn points across all services and redeem them for discounts, free deliveries, and exclusive offers.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-main rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Trusted & Secure</h3>
+                    <p class="text-gray-600 leading-relaxed">Bank-level security with verified partners and 24/7 customer support across all services.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-main rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h3>Lightning Fast</h3>
-                    <p>Optimized performance and quick response times across all our applications.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Lightning Fast</h3>
+                    <p class="text-gray-600 leading-relaxed">Optimized performance with real-time tracking and instant notifications across all services.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
+                
+                <!-- Feature 5 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-main rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-heart"></i>
                     </div>
-                    <h3>User-Centric</h3>
-                    <p>Designed with users in mind, focusing on simplicity and exceptional user experience.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Personalized Experience</h3>
+                    <p class="text-gray-600 leading-relaxed">AI-powered recommendations and personalized offers based on your usage patterns.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-main rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Global Standards</h3>
+                    <p class="text-gray-600 leading-relaxed">International quality standards with local expertise and cultural understanding.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">Revolutionizing <span class="gradient-text">Daily Life</span></h2>
-                    <p class="section-subtitle">Soma Ko is more than just apps - we're building the future of convenient living.</p>
-                    <div class="about-features">
-                        <div class="about-feature">
-                            <div class="feature-number">01</div>
-                            <div class="feature-content">
-                                <h3>Integrated Ecosystem</h3>
-                                <p>All services connected through one unified platform for maximum convenience.</p>
-                            </div>
+    <!-- Ecosystem Section -->
+    <section id="ecosystem" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+                    The <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Complete</span> Ecosystem
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    See how our five apps work together to simplify your daily life.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Ecosystem Visualization -->
+                <div class="relative h-96 flex items-center justify-center">
+                    <div class="ecosystem-orbit relative w-80 h-80">
+                        <!-- Central Hub -->
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 gradient-main rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-2xl animate-glow">
+                            SK
                         </div>
-                        <div class="about-feature">
-                            <div class="feature-number">02</div>
-                            <div class="feature-content">
-                                <h3>Local Focus</h3>
-                                <p>Supporting local businesses and communities while providing global-quality service.</p>
-                            </div>
-                        </div>
-                        <div class="about-feature">
-                            <div class="feature-number">03</div>
-                            <div class="feature-content">
-                                <h3>Innovation First</h3>
-                                <p>Constantly evolving with cutting-edge technology and user-driven improvements.</p>
-                            </div>
-                        </div>
+                        
+                        <!-- Orbiting Apps -->
+                        <div class="orbit-item orbit-1 gradient-ride shadow-xl">🚗</div>
+                        <div class="orbit-item orbit-2 gradient-food shadow-xl">🍕</div>
+                        <div class="orbit-item orbit-3 gradient-pharmacy shadow-xl">💊</div>
+                        <div class="orbit-item orbit-4 gradient-rent shadow-xl">🏠</div>
+                        <div class="orbit-item orbit-5 gradient-express shadow-xl">⚡</div>
                     </div>
                 </div>
-                <div class="about-visual">
-                    <div class="ecosystem-diagram">
-                        <div class="center-hub">
-                            <i class="fas fa-cube"></i>
-                            <span>Soma Ko</span>
+                
+                <!-- Ecosystem Benefits -->
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 gradient-ride rounded-xl flex items-center justify-center text-white shadow-lg">
+                            <i class="fas fa-sync-alt"></i>
                         </div>
-                        <div class="app-nodes">
-                            <div class="node food-node"><i class="fas fa-utensils"></i></div>
-                            <div class="node ride-node"><i class="fas fa-car"></i></div>
-                            <div class="node pharmacy-node"><i class="fas fa-pills"></i></div>
-                            <div class="node rent-node"><i class="fas fa-home"></i></div>
-                            <div class="node express-node"><i class="fas fa-shipping-fast"></i></div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Seamless Integration</h3>
+                            <p class="text-gray-600">Switch between services effortlessly with shared preferences, payment methods, and location data.</p>
                         </div>
-                        <div class="connecting-lines">
-                            <div class="line line-1"></div>
-                            <div class="line line-2"></div>
-                            <div class="line line-3"></div>
-                            <div class="line line-4"></div>
-                            <div class="line line-5"></div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 gradient-food rounded-xl flex items-center justify-center text-white shadow-lg">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Smart Insights</h3>
+                            <p class="text-gray-600">Get personalized recommendations and optimize your lifestyle with data-driven insights.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 gradient-pharmacy rounded-xl flex items-center justify-center text-white shadow-lg">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Cost Savings</h3>
+                            <p class="text-gray-600">Bundle discounts, loyalty rewards, and cross-service promotions save you money every day.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 gradient-rent rounded-xl flex items-center justify-center text-white shadow-lg">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Time Efficiency</h3>
+                            <p class="text-gray-600">Coordinate multiple services, schedule deliveries, and manage your lifestyle from one app.</p>
                         </div>
                     </div>
                 </div>
@@ -353,146 +514,113 @@
     </section>
 
     <!-- Download Section -->
-    <section id="download" class="download-section">
-        <div class="container">
-            <div class="download-content">
-                <div class="download-text">
-                    <h2 class="section-title">Get Started <span class="gradient-text">Today</span></h2>
-                    <p class="section-subtitle">Download all Soma Ko apps and transform your daily life with our integrated ecosystem.</p>
-                    <div class="app-store-buttons">
-                        <a href="#" class="store-button">
-                            <img src="assets/google-play-badge.svg" alt="Get it on Google Play">
-                        </a>
-                        <a href="#" class="store-button">
-                            <img src="assets/app-store-badge.svg" alt="Download on the App Store">
-                        </a>
-                    </div>
-                    <div class="download-stats">
-                        <div class="download-stat">
-                            <span class="stat-number">1M+</span>
-                            <span class="stat-label">Downloads</span>
-                        </div>
-                        <div class="download-stat">
-                            <span class="stat-number">4.8★</span>
-                            <span class="stat-label">Average Rating</span>
-                        </div>
-                        <div class="download-stat">
-                            <span class="stat-number">98%</span>
-                            <span class="stat-label">Satisfaction</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="download-visual">
-                    <div class="phones-showcase">
-                        <div class="phone phone-1">
-                            <div class="phone-screen">
-                                <div class="app-preview food-preview">
-                                    <i class="fas fa-utensils"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="phone phone-2">
-                            <div class="phone-screen">
-                                <div class="app-preview ride-preview">
-                                    <i class="fas fa-car"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="phone phone-3">
-                            <div class="phone-screen">
-                                <div class="app-preview pharmacy-preview">
-                                    <i class="fas fa-pills"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <section id="download" class="py-20 gradient-main text-white relative overflow-hidden">
+        <!-- Background Animation -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-white/10 rounded-full animate-float" style="animation-delay: 0s;"></div>
+            <div class="absolute top-1/3 right-1/4 w-24 h-24 bg-white/10 rounded-full animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-1/3 left-1/3 w-20 h-20 bg-white/10 rounded-full animate-float" style="animation-delay: 4s;"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl lg:text-6xl font-black mb-8">Ready to Experience the Future?</h2>
+            <p class="text-xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed">
+                Download the Soma Ko app and get access to all five services in one unified platform. Your complete lifestyle ecosystem awaits.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+                <a href="#" class="transform hover:scale-105 transition-transform duration-300">
+                    <img src="assets/google-play-badge.svg" alt="Get it on Google Play" class="h-20 hover:opacity-90 transition-opacity">
+                </a>
+                <a href="#" class="transform hover:scale-105 transition-transform duration-300">
+                    <img src="assets/app-store-badge.svg" alt="Download on the App Store" class="h-20 hover:opacity-90 transition-opacity">
+                </a>
+            </div>
+            
+            <div class="text-center text-white/80">
+                <p class="text-lg font-semibold mb-4">Join millions of users worldwide</p>
+                <div class="flex justify-center space-x-8 text-sm">
+                    <span>⭐ 4.8+ Rating</span>
+                    <span>📱 1M+ Downloads</span>
+                    <span>🔒 100% Secure</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <div class="logo-icon">
-                            <i class="fas fa-cube"></i>
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+                <!-- Brand Column -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 gradient-main rounded-lg flex items-center justify-center text-white">
+                            <i class="fas fa-layer-group"></i>
                         </div>
-                        <span class="logo-text">Soma Ko</span>
+                        <span class="text-2xl font-bold">Soma Ko</span>
                     </div>
-                    <p class="footer-description">Your complete lifestyle app ecosystem. Everything you need, all in one place.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Your complete lifestyle ecosystem featuring five integrated apps for transportation, food delivery, healthcare, property rental, and express courier services.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Our Apps</h3>
-                    <ul class="footer-links">
-                        <li><a href="food.html">Soma Ko Food</a></li>
-                        <li><a href="ride.html">Soma Ko Ride</a></li>
-                        <li><a href="pharmacy.html">Soma Ko Pharmacy</a></li>
-                        <li><a href="rent.html">Soma Ko Rent</a></li>
-                        <li><a href="express.html">Soma Ko Express</a></li>
+                
+                <!-- Apps Column -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Our Apps</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="ride-tailwind.html" class="hover:text-white transition-colors">Soma Ko Ride</a></li>
+                        <li><a href="food-tailwind.html" class="hover:text-white transition-colors">Soma Ko Food</a></li>
+                        <li><a href="pharmacy-tailwind.html" class="hover:text-white transition-colors">Soma Ko Pharmacy</a></li>
+                        <li><a href="rent-tailwind.html" class="hover:text-white transition-colors">Soma Ko Rent</a></li>
+                        <li><a href="express-tailwind.html" class="hover:text-white transition-colors">Soma Ko Express</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Partners</a></li>
-                        <li><a href="#">Investors</a></li>
+                
+                <!-- Support Column -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Safety</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Community</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Support</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Safety</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                
+                <!-- Company Column -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Press</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Partner With Us</a></li>
                     </ul>
-                </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Connect</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>hello@somako.org</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+1 (555) 123-SOMA</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>123 Innovation Street, Tech City</span>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="footer-divider"></div>
-                <div class="footer-bottom-content">
-                    <p class="copyright">&copy; 2025 Soma Ko. All rights reserved.</p>
-                    <div class="footer-bottom-links">
-                        <a href="#">Privacy</a>
-                        <a href="#">Terms</a>
-                        <a href="#">Cookies</a>
-                    </div>
-                </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Soma Ko. All rights reserved. Your Complete Lifestyle Ecosystem.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- JavaScript -->
+    <script src="script-tailwind.js"></script>
 </body>
 </html>

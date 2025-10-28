@@ -3,130 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Soma Ko Express - Fast, reliable package delivery and courier services with real-time tracking and same-day delivery options.">
-    <meta name="keywords" content="package delivery, courier service, express delivery, Soma Ko Express, same-day delivery, package tracking">
-    <meta property="og:title" content="Soma Ko Express - Fast & Reliable Delivery Service">
-    <meta property="og:description" content="Send packages anywhere with lightning-fast delivery and real-time tracking. Same-day delivery available!">
+    <meta name="description" content="Soma Ko Express - Lightning-fast courier and package delivery service. Send packages, documents, and parcels with real-time tracking.">
+    <meta name="keywords" content="express delivery, courier service, package delivery, Soma Ko Express, fast delivery, parcel service">
+    <meta property="og:title" content="Soma Ko Express - Lightning Fast Delivery">
+    <meta property="og:description" content="Fast, reliable courier service for packages, documents, and parcels with real-time tracking.">
     <meta property="og:image" content="https://somako.org/express-preview.jpg">
     <meta property="og:url" content="https://somako.org/express">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="author" content="Soma Ko">
-    <title>Soma Ko Express - Fast & Reliable Delivery Service</title>
+    <title>Soma Ko Express - Fast Courier & Delivery Service</title>
     
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="apple-touch-icon" href="assets/favicon.svg">
     
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'express-primary': '#f093fb',
+                        'express-secondary': '#f5576c',
+                        'express-accent': '#ec4899',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'zoom': 'zoom 2s ease-in-out infinite',
+                        'lightning': 'lightning 1.5s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        zoom: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.1)' },
+                        },
+                        lightning: {
+                            '0%, 100%': { opacity: '0.7', transform: 'scale(1)' },
+                            '50%': { opacity: '1', transform: 'scale(1.2)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        .gradient-express {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .gradient-text-express {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .package-fly {
+            animation: packageFly 4s ease-in-out infinite;
+        }
+        
+        @keyframes packageFly {
+            0%, 100% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+            25% { transform: translateX(10px) translateY(-5px) rotate(2deg); }
+            50% { transform: translateX(20px) translateY(-10px) rotate(-1deg); }
+            75% { transform: translateX(10px) translateY(-5px) rotate(1deg); }
+        }
+        
+        .lightning-bolt {
+            animation: lightning 1.5s ease-in-out infinite;
+        }
+        
+        .speed-lines {
+            animation: speedLines 1s linear infinite;
+        }
+        
+        @keyframes speedLines {
+            0% { transform: translateX(-100px); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100px); opacity: 0; }
+        }
+        
+        .express-glow {
+            animation: expressGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes expressGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(240, 147, 251, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(240, 147, 251, 0.6); }
+        }
+    </style>
 </head>
-<body class="express-theme">
+
+<body class="font-poppins bg-gray-50 overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <div class="logo-icon express-gradient">
-                    <i class="fas fa-shipping-fast"></i>
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 glass-effect border-b border-white/20 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 gradient-express rounded-xl flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <i class="fas fa-bolt text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold text-gray-800">Soma Ko Express</span>
                 </div>
-                <span class="logo-text">Soma Ko Express</span>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 hover:scale-105 transform">Home</a>
+                    <a href="#services" class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 hover:scale-105 transform">Services</a>
+                    <a href="#tracking" class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 hover:scale-105 transform">Tracking</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 hover:scale-105 transform">Pricing</a>
+                    <a href="#download" class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 hover:scale-105 transform">Download</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 focus:outline-none transition-colors duration-200">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#tracking" class="nav-link">Tracking</a>
-                <a href="#business" class="nav-link">Business</a>
-                <a href="#download" class="nav-link">Download</a>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 glass-effect border-t border-gray-200">
+            <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200">Home</a>
+                <a href="#services" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200">Services</a>
+                <a href="#tracking" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200">Tracking</a>
+                <a href="#pricing" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200">Pricing</a>
+                <a href="#download" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200">Download</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero express-hero">
-        <div class="hero-background">
-            <div class="delivery-paths">
-                <div class="delivery-path path-1">
-                    <div class="package-icon moving">📦</div>
-                    <div class="path-line"></div>
-                </div>
-                <div class="delivery-path path-2">
-                    <div class="package-icon moving">📦</div>
-                    <div class="path-line"></div>
-                </div>
-                <div class="delivery-path path-3">
-                    <div class="package-icon moving">📦</div>
-                    <div class="path-line"></div>
-                </div>
-            </div>
-            <div class="speed-lines">
-                <div class="speed-line line-1"></div>
-                <div class="speed-line line-2"></div>
-                <div class="speed-line line-3"></div>
-            </div>
+    <section class="relative min-h-screen gradient-express flex items-center overflow-hidden">
+        <!-- Lightning Effects -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 text-4xl text-white/30 lightning-bolt" style="animation-delay: 0s;">⚡</div>
+            <div class="absolute top-1/3 right-1/4 text-3xl text-white/30 lightning-bolt" style="animation-delay: 0.5s;">⚡</div>
+            <div class="absolute bottom-1/3 left-1/3 text-5xl text-white/30 lightning-bolt" style="animation-delay: 1s;">⚡</div>
+            <div class="absolute top-1/2 right-1/3 text-4xl text-white/30 lightning-bolt" style="animation-delay: 1.5s;">⚡</div>
         </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="express-gradient-text">Lightning Fast</span><br>
-                        Delivery Service ⚡
+        
+        <!-- Package Flying Animation -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/3 left-1/5 text-3xl text-white/20 package-fly" style="animation-delay: 0s;">📦</div>
+            <div class="absolute bottom-1/2 right-1/5 text-2xl text-white/20 package-fly" style="animation-delay: 2s;">📄</div>
+        </div>
+        
+        <!-- Speed Lines -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            <div class="absolute top-1/2 w-20 h-1 bg-white/20 speed-lines" style="animation-delay: 0s;"></div>
+            <div class="absolute top-1/3 w-16 h-0.5 bg-white/20 speed-lines" style="animation-delay: 0.3s;"></div>
+            <div class="absolute bottom-1/3 w-12 h-0.5 bg-white/20 speed-lines" style="animation-delay: 0.6s;"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="text-center lg:text-left">
+                    <h1 class="text-5xl lg:text-7xl font-black text-white mb-6 leading-tight">
+                        Lightning <span class="gradient-text-express">Fast</span><br>
+                        Delivery ⚡
                     </h1>
-                    <p class="hero-subtitle">
-                        Send packages anywhere with same-day delivery, real-time tracking, and secure handling. From documents to large items, we deliver with speed and care.
+                    <p class="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed">
+                        Send packages, documents, and parcels across the city with our express courier service. Real-time tracking and same-day delivery.
                     </p>
-                    <div class="hero-buttons">
-                        <a href="https://play.google.com/store/apps/details?id=com.somako.express" class="btn btn-primary express-btn">
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 mb-12 justify-center lg:justify-start">
+                        <a href="https://play.google.com/store/apps/details?id=com.somako.express" 
+                           class="inline-flex items-center justify-center px-8 py-4 bg-white text-express-primary font-semibold rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 space-x-2">
                             <i class="fas fa-download"></i>
-                            Download App
+                            <span>Send Package</span>
                         </a>
-                        <button class="btn btn-secondary express-secondary">
+                        <button class="inline-flex items-center justify-center px-8 py-4 bg-white/20 glass-effect text-white font-semibold rounded-2xl border border-white/30 hover:bg-white/30 transform hover:scale-105 transition-all duration-300 space-x-2">
                             <i class="fas fa-search"></i>
-                            Track Package
+                            <span>Track Package</span>
                         </button>
                     </div>
-                    <div class="hero-features">
-                        <div class="feature">
-                            <i class="fas fa-clock"></i>
-                            <span>Same-day delivery</span>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-8 text-center lg:text-left">
+                        <div>
+                            <div class="text-3xl lg:text-4xl font-black text-white mb-2" data-count="300000">300K+</div>
+                            <div class="text-white/80 font-medium text-sm uppercase tracking-wider">Packages Delivered</div>
                         </div>
-                        <div class="feature">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Secure handling</span>
+                        <div>
+                            <div class="text-3xl lg:text-4xl font-black text-white mb-2" data-count="2">2</div>
+                            <div class="text-white/80 font-medium text-sm uppercase tracking-wider">Hours Average Delivery</div>
                         </div>
-                        <div class="feature">
-                            <i class="fas fa-map-marked-alt"></i>
-                            <span>Real-time tracking</span>
+                        <div>
+                            <div class="text-3xl lg:text-4xl font-black text-white mb-2" data-count="99">99%</div>
+                            <div class="text-white/80 font-medium text-sm uppercase tracking-wider">On-Time Delivery</div>
                         </div>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <div class="phone-mockup express-phone">
-                        <div class="phone-screen">
-                            <div class="express-interface">
-                                <div class="app-header">
-                                    <div class="tracking-id">#EX123456789</div>
-                                    <div class="notification-icon">🔔</div>
+                
+                <!-- Phone Mockup -->
+                <div class="flex justify-center lg:justify-end">
+                    <div class="relative w-80 h-[600px] bg-white rounded-[3rem] p-6 shadow-2xl express-glow">
+                        <div class="w-full h-full bg-gradient-to-br from-pink-50 to-purple-50 rounded-[2.5rem] overflow-hidden relative">
+                            <!-- Phone Interface -->
+                            <div class="p-6 h-full flex flex-col">
+                                <!-- Header -->
+                                <div class="flex items-center justify-between mb-6">
+                                    <div class="text-sm text-gray-600">📦 Express Delivery</div>
+                                    <div class="text-sm text-pink-600 font-semibold">⚡</div>
                                 </div>
-                                <div class="delivery-status">
-                                    <div class="status-icon">🚚</div>
-                                    <div class="status-text">
-                                        <div class="status-title">Out for Delivery</div>
-                                        <div class="status-time">Arriving in 15 minutes</div>
+                                
+                                <!-- Quick Actions -->
+                                <div class="grid grid-cols-2 gap-3 mb-6">
+                                    <div class="bg-pink-500 text-white p-4 rounded-xl text-center">
+                                        <div class="text-2xl mb-2">📦</div>
+                                        <div class="text-xs font-semibold">Send Package</div>
+                                    </div>
+                                    <div class="bg-purple-500 text-white p-4 rounded-xl text-center">
+                                        <div class="text-2xl mb-2">📍</div>
+                                        <div class="text-xs font-semibold">Track Package</div>
                                     </div>
                                 </div>
-                                <div class="delivery-map">
-                                    <div class="map-pin origin">📍</div>
-                                    <div class="delivery-route"></div>
-                                    <div class="delivery-truck">🚚</div>
-                                    <div class="map-pin destination">🎯</div>
+                                
+                                <!-- Active Delivery -->
+                                <div class="bg-white rounded-2xl p-4 shadow-sm mb-6">
+                                    <div class="text-sm font-semibold text-gray-800 mb-3">Active Delivery</div>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-xs text-gray-600">📦 #EX123456</span>
+                                            <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full font-semibold">In Transit</span>
+                                        </div>
+                                        <div class="bg-gray-100 rounded-lg h-2">
+                                            <div class="bg-pink-500 h-2 rounded-lg w-3/4"></div>
+                                        </div>
+                                        <div class="text-xs text-gray-600">
+                                            Estimated delivery: <span class="font-semibold">2:30 PM</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="delivery-actions">
-                                    <button class="action-btn">📞 Call Driver</button>
-                                    <button class="action-btn">📍 Share Location</button>
+                                
+                                <!-- Service Options -->
+                                <div class="flex-1 space-y-3">
+                                    <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="text-xl">⚡</div>
+                                            <div class="flex-1">
+                                                <div class="text-sm font-medium">Express Delivery</div>
+                                                <div class="text-xs text-gray-500">Within 2 hours</div>
+                                            </div>
+                                            <div class="text-sm font-semibold text-pink-600">$15</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="text-xl">🚚</div>
+                                            <div class="flex-1">
+                                                <div class="text-sm font-medium">Standard Delivery</div>
+                                                <div class="text-xs text-gray-500">Same day</div>
+                                            </div>
+                                            <div class="text-sm font-semibold text-gray-600">$8</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -137,514 +302,276 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our <span class="express-gradient-text">Delivery Services</span></h2>
-                <p class="section-subtitle">Choose the perfect delivery option for your needs, from urgent documents to bulk shipments.</p>
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+                    Express <span class="gradient-text-express">Delivery</span> Services
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Fast, reliable courier services for all your delivery needs.
+                </p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon express-gradient">
-                        <i class="fas fa-bolt"></i>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-express rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-rocket"></i>
                     </div>
-                    <h3>Express Delivery</h3>
-                    <p>Ultra-fast delivery within 2-4 hours for urgent packages and documents.</p>
-                    <div class="service-features">
-                        <span>⚡ 2-4 hours</span>
-                        <span>🔒 Priority handling</span>
-                        <span>📱 Live tracking</span>
-                    </div>
-                    <div class="service-price">Starting at $8.99</div>
-                    <div class="popular-badge">Most Popular</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Express Delivery</h3>
+                    <p class="text-gray-600 leading-relaxed">Lightning-fast delivery within 2 hours for urgent packages and documents.</p>
+                    <div class="mt-4 text-2xl font-bold text-pink-600">Within 2 Hours</div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon express-gradient">
-                        <i class="fas fa-calendar-day"></i>
-                    </div>
-                    <h3>Same-Day Delivery</h3>
-                    <p>Get your packages delivered on the same day with flexible time slots.</p>
-                    <div class="service-features">
-                        <span>📅 Same day</span>
-                        <span>⏰ Time slots</span>
-                        <span>📦 Any size</span>
-                    </div>
-                    <div class="service-price">Starting at $5.99</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon express-gradient">
+                
+                <!-- Service 2 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-express rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-truck"></i>
                     </div>
-                    <h3>Standard Delivery</h3>
-                    <p>Reliable next-day delivery with competitive pricing for regular shipments.</p>
-                    <div class="service-features">
-                        <span>📆 Next day</span>
-                        <span>💰 Affordable</span>
-                        <span>📍 Wide coverage</span>
-                    </div>
-                    <div class="service-price">Starting at $3.99</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Same Day Delivery</h3>
+                    <p class="text-gray-600 leading-relaxed">Reliable same-day delivery service for packages across the city.</p>
+                    <div class="mt-4 text-2xl font-bold text-pink-600">Same Day</div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon express-gradient">
-                        <i class="fas fa-boxes"></i>
+                
+                <!-- Service 3 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-express rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-file-alt"></i>
                     </div>
-                    <h3>Bulk Shipping</h3>
-                    <p>Special rates for businesses and bulk shipments with dedicated support.</p>
-                    <div class="service-features">
-                        <span>📊 Volume discounts</span>
-                        <span>🏢 Business solutions</span>
-                        <span>📋 Account management</span>
-                    </div>
-                    <div class="service-price">Custom pricing</div>
-                    <div class="business-badge">For Business</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Document Delivery</h3>
+                    <p class="text-gray-600 leading-relaxed">Secure and fast delivery of important documents and legal papers.</p>
+                    <div class="mt-4 text-2xl font-bold text-pink-600">1 Hour</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Package Types -->
-    <section class="package-types-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">What Can We <span class="express-gradient-text">Deliver</span>?</h2>
-                <p class="section-subtitle">We handle packages of all sizes and types with appropriate care and security.</p>
-            </div>
-            <div class="package-types-grid">
-                <div class="package-type">
-                    <div class="package-icon">📄</div>
-                    <h3>Documents</h3>
-                    <p>Legal papers, contracts, certificates</p>
-                    <div class="package-specs">
-                        <span>📏 Up to A4 size</span>
-                        <span>⚖️ Up to 2kg</span>
+                
+                <!-- Service 4 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-express rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-gift"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Gift Delivery</h3>
+                    <p class="text-gray-600 leading-relaxed">Special gift delivery service with care handling and presentation.</p>
+                    <div class="mt-4 text-2xl font-bold text-pink-600">3 Hours</div>
                 </div>
-                <div class="package-type">
-                    <div class="package-icon">🎁</div>
-                    <h3>Small Packages</h3>
-                    <p>Gifts, electronics, personal items</p>
-                    <div class="package-specs">
-                        <span>📦 Up to 30cm³</span>
-                        <span>⚖️ Up to 5kg</span>
-                    </div>
-                </div>
-                <div class="package-type">
-                    <div class="package-icon">📦</div>
-                    <h3>Medium Packages</h3>
-                    <p>Clothing, books, home items</p>
-                    <div class="package-specs">
-                        <span>📦 Up to 60cm³</span>
-                        <span>⚖️ Up to 15kg</span>
-                    </div>
-                </div>
-                <div class="package-type">
-                    <div class="package-icon">🛍️</div>
-                    <h3>Large Items</h3>
-                    <p>Furniture, appliances, bulk orders</p>
-                    <div class="package-specs">
-                        <span>📦 Custom size</span>
-                        <span>⚖️ Up to 50kg</span>
-                    </div>
-                </div>
-                <div class="package-type">
-                    <div class="package-icon">❄️</div>
-                    <h3>Temperature Controlled</h3>
-                    <p>Food, medicines, fragile items</p>
-                    <div class="package-specs">
-                        <span>🌡️ Cold/frozen</span>
-                        <span>🔒 Special handling</span>
-                    </div>
-                </div>
-                <div class="package-type">
-                    <div class="package-icon">💎</div>
-                    <h3>High-Value Items</h3>
-                    <p>Jewelry, art, collectibles</p>
-                    <div class="package-specs">
-                        <span>🔐 Extra security</span>
-                        <span>📋 Insurance included</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tracking Section -->
-    <section id="tracking" class="tracking-section">
-        <div class="container">
-            <div class="tracking-content">
-                <div class="tracking-text">
-                    <h2 class="section-title">Advanced <span class="express-gradient-text">Package Tracking</span></h2>
-                    <p class="section-subtitle">Stay informed every step of the way with our comprehensive tracking system.</p>
-                    <div class="tracking-features">
-                        <div class="tracking-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-satellite-dish"></i>
-                            </div>
-                            <div class="feature-content">
-                                <h3>Real-Time GPS</h3>
-                                <p>Track your package location in real-time with precise GPS coordinates and estimated arrival times.</p>
-                            </div>
-                        </div>
-                        <div class="tracking-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-bell"></i>
-                            </div>
-                            <div class="feature-content">
-                                <h3>Smart Notifications</h3>
-                                <p>Receive automatic updates via SMS, email, or push notifications at every delivery milestone.</p>
-                            </div>
-                        </div>
-                        <div class="tracking-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-camera"></i>
-                            </div>
-                            <div class="feature-content">
-                                <h3>Proof of Delivery</h3>
-                                <p>Get instant photo confirmation and digital signature when your package is delivered.</p>
-                            </div>
-                        </div>
-                        <div class="tracking-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-share-alt"></i>
-                            </div>
-                            <div class="feature-content">
-                                <h3>Share Tracking</h3>
-                                <p>Share tracking links with recipients or family members to keep everyone informed.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tracking-visual">
-                    <div class="tracking-timeline">
-                        <div class="timeline-header">
-                            <h4>Package Journey</h4>
-                            <div class="tracking-id">#EX987654321</div>
-                        </div>
-                        <div class="timeline-steps">
-                            <div class="timeline-step completed">
-                                <div class="step-icon">✅</div>
-                                <div class="step-content">
-                                    <span class="step-title">Package Picked Up</span>
-                                    <span class="step-time">9:30 AM</span>
-                                    <span class="step-location">123 Main St</span>
-                                </div>
-                            </div>
-                            <div class="timeline-step completed">
-                                <div class="step-icon">✅</div>
-                                <div class="step-content">
-                                    <span class="step-title">In Transit</span>
-                                    <span class="step-time">10:15 AM</span>
-                                    <span class="step-location">Distribution Center</span>
-                                </div>
-                            </div>
-                            <div class="timeline-step active">
-                                <div class="step-icon">🚚</div>
-                                <div class="step-content">
-                                    <span class="step-title">Out for Delivery</span>
-                                    <span class="step-time">2:45 PM</span>
-                                    <span class="step-location">Local Hub</span>
-                                </div>
-                            </div>
-                            <div class="timeline-step pending">
-                                <div class="step-icon">📦</div>
-                                <div class="step-content">
-                                    <span class="step-title">Delivered</span>
-                                    <span class="step-time">ETA: 3:30 PM</span>
-                                    <span class="step-location">456 Oak Ave</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- For Business -->
-    <section id="business" class="business-section">
-        <div class="container">
-            <div class="business-content">
-                <div class="business-visual">
-                    <div class="business-dashboard">
-                        <div class="dashboard-header">
-                            <h4>Business Dashboard</h4>
-                            <div class="shipment-stats">
-                                <span class="stat-number">1,247</span>
-                                <span class="stat-label">Shipments This Month</span>
-                            </div>
-                        </div>
-                        <div class="business-metrics">
-                            <div class="metric">
-                                <div class="metric-icon">📊</div>
-                                <div class="metric-info">
-                                    <span>On-Time Rate</span>
-                                    <span>98.5%</span>
-                                </div>
-                            </div>
-                            <div class="metric">
-                                <div class="metric-icon">💰</div>
-                                <div class="metric-info">
-                                    <span>Cost Savings</span>
-                                    <span>$2,340</span>
-                                </div>
-                            </div>
-                            <div class="metric">
-                                <div class="metric-icon">⭐</div>
-                                <div class="metric-info">
-                                    <span>Customer Rating</span>
-                                    <span>4.9/5</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="recent-shipments">
-                            <h5>Recent Shipments</h5>
-                            <div class="shipment">🚚 Order #1247 - Delivered</div>
-                            <div class="shipment">📦 Order #1246 - In Transit</div>
-                            <div class="shipment">✅ Order #1245 - Delivered</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="business-text">
-                    <h2 class="section-title">Soma Ko <span class="express-gradient-text">Business Solutions</span></h2>
-                    <p class="section-subtitle">Streamline your shipping operations with our comprehensive business platform and dedicated support.</p>
-                    <div class="business-benefits">
-                        <div class="benefit">
-                            <i class="fas fa-chart-line"></i>
-                            <div class="benefit-content">
-                                <h3>Volume Discounts</h3>
-                                <p>Save up to 40% on shipping costs with our tiered pricing structure for high-volume shippers.</p>
-                            </div>
-                        </div>
-                        <div class="benefit">
-                            <i class="fas fa-cogs"></i>
-                            <div class="benefit-content">
-                                <h3>API Integration</h3>
-                                <p>Seamlessly integrate our shipping services into your existing systems with our robust API.</p>
-                            </div>
-                        </div>
-                        <div class="benefit">
-                            <i class="fas fa-headset"></i>
-                            <div class="benefit-content">
-                                <h3>Dedicated Support</h3>
-                                <p>Get priority customer support with a dedicated account manager for your business needs.</p>
-                            </div>
-                        </div>
-                        <div class="benefit">
-                            <i class="fas fa-analytics"></i>
-                            <div class="benefit-content">
-                                <h3>Analytics Dashboard</h3>
-                                <p>Track performance metrics, shipping costs, and delivery times with detailed analytics.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="business-cta">
-                        <a href="#" class="btn btn-primary express-btn">
-                            <i class="fas fa-briefcase"></i>
-                            Business Solutions
-                        </a>
-                        <a href="#" class="btn btn-outline">
-                            <i class="fas fa-phone"></i>
-                            Contact Sales
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">How to <span class="express-gradient-text">Send a Package</span></h2>
-                <p class="section-subtitle">Simple steps to get your package delivered quickly and securely.</p>
-            </div>
-            <div class="steps-container">
-                <div class="step">
-                    <div class="step-number">01</div>
-                    <div class="step-icon express-gradient">
+                
+                <!-- Service 5 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-express rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-box"></i>
                     </div>
-                    <h3>Package Details</h3>
-                    <p>Enter pickup and delivery addresses, package dimensions, and choose your preferred delivery speed.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Bulk Delivery</h3>
+                    <p class="text-gray-600 leading-relaxed">Efficient delivery service for multiple packages to various locations.</p>
+                    <div class="mt-4 text-2xl font-bold text-pink-600">4-6 Hours</div>
                 </div>
-                <div class="step">
-                    <div class="step-number">02</div>
-                    <div class="step-icon express-gradient">
-                        <i class="fas fa-calendar-check"></i>
+                
+                <!-- Service 6 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 gradient-express rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-map-marker-alt"></i>
                     </div>
-                    <h3>Schedule Pickup</h3>
-                    <p>Select a convenient pickup time or drop off at one of our thousands of partner locations.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Real-Time Tracking</h3>
+                    <p class="text-gray-600 leading-relaxed">Track your packages in real-time with live updates and notifications.</p>
+                    <div class="mt-4 text-2xl font-bold text-pink-600">Live Updates</div>
                 </div>
-                <div class="step">
-                    <div class="step-number">03</div>
-                    <div class="step-icon express-gradient">
-                        <i class="fas fa-credit-card"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+                    Simple <span class="gradient-text-express">Pricing</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Transparent pricing with no hidden fees.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Pricing Plan 1 -->
+                <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">⚡</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Express</h3>
+                        <div class="text-4xl font-black text-pink-600 mb-1">$15</div>
+                        <div class="text-gray-500 mb-6">Within 2 hours</div>
+                        <div class="space-y-3 text-left mb-8">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Real-time tracking</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>SMS notifications</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Photo confirmation</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Up to 5kg</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-pink-500 text-white py-3 rounded-xl font-semibold hover:bg-pink-600 transition-colors">
+                            Choose Plan
+                        </button>
                     </div>
-                    <h3>Secure Payment</h3>
-                    <p>Pay securely with multiple payment options and get instant confirmation with tracking number.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">04</div>
-                    <div class="step-icon express-gradient">
-                        <i class="fas fa-shipping-fast"></i>
+                
+                <!-- Pricing Plan 2 -->
+                <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-2 border-pink-500">
+                    <div class="text-center">
+                        <div class="inline-block bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-semibold mb-4">Most Popular</div>
+                        <div class="text-4xl mb-4">🚚</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Standard</h3>
+                        <div class="text-4xl font-black text-pink-600 mb-1">$8</div>
+                        <div class="text-gray-500 mb-6">Same day</div>
+                        <div class="space-y-3 text-left mb-8">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Real-time tracking</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>SMS notifications</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Photo confirmation</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Up to 10kg</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-pink-500 text-white py-3 rounded-xl font-semibold hover:bg-pink-600 transition-colors">
+                            Choose Plan
+                        </button>
                     </div>
-                    <h3>Track & Deliver</h3>
-                    <p>Follow your package journey in real-time and receive confirmation when delivered safely.</p>
+                </div>
+                
+                <!-- Pricing Plan 3 -->
+                <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">📦</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Economy</h3>
+                        <div class="text-4xl font-black text-pink-600 mb-1">$5</div>
+                        <div class="text-gray-500 mb-6">Next day</div>
+                        <div class="space-y-3 text-left mb-8">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Basic tracking</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Email notifications</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Delivery confirmation</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Up to 20kg</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-gray-500 text-white py-3 rounded-xl font-semibold hover:bg-gray-600 transition-colors">
+                            Choose Plan
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Download Section -->
-    <section id="download" class="download-section express-download">
-        <div class="container">
-            <div class="download-content">
-                <div class="download-text">
-                    <h2 class="section-title">Download <span class="express-gradient-text">Soma Ko Express</span></h2>
-                    <p class="section-subtitle">Start sending packages with lightning-fast delivery and complete peace of mind.</p>
-                    <div class="app-store-buttons">
-                        <a href="https://play.google.com/store/apps/details?id=com.somako.express" class="store-button">
-                            <img src="assets/google-play-badge.svg" alt="Get it on Google Play">
-                        </a>
-                        <a href="https://apps.apple.com/app/soma-ko-express/id123456789" class="store-button">
-                            <img src="assets/app-store-badge.svg" alt="Download on the App Store">
-                        </a>
-                    </div>
-                    <div class="download-features">
-                        <div class="download-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Same-day delivery</span>
-                        </div>
-                        <div class="download-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Real-time tracking</span>
-                        </div>
-                        <div class="download-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Secure handling</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="download-visual">
-                    <div class="phone-showcase">
-                        <div class="download-phone">
-                            <div class="phone-screen">
-                                <div class="app-preview">
-                                    <div class="preview-header">
-                                        <i class="fas fa-shipping-fast"></i>
-                                        <span>Soma Ko Express</span>
-                                    </div>
-                                    <div class="quick-send">
-                                        <div class="send-form">
-                                            <div class="address-input">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                <span>From: Your location</span>
-                                            </div>
-                                            <div class="address-input">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                <span>To: Enter destination</span>
-                                            </div>
-                                        </div>
-                                        <div class="service-options">
-                                            <div class="service-option selected">
-                                                <span>⚡ Express</span>
-                                                <span>$8.99</span>
-                                            </div>
-                                            <div class="service-option">
-                                                <span>📅 Same Day</span>
-                                                <span>$5.99</span>
-                                            </div>
-                                        </div>
-                                        <button class="send-button">Send Package</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section id="download" class="py-20 gradient-express text-white relative overflow-hidden">
+        <!-- Background Animation -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 text-4xl text-white/30 lightning-bolt" style="animation-delay: 0s;">⚡</div>
+            <div class="absolute top-1/3 right-1/4 text-3xl text-white/30 lightning-bolt" style="animation-delay: 2s;">📦</div>
+            <div class="absolute bottom-1/3 left-1/3 text-5xl text-white/30 lightning-bolt" style="animation-delay: 4s;">🚀</div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl lg:text-5xl font-black mb-6">Need Fast Delivery?</h2>
+            <p class="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
+                Download Soma Ko Express and send packages across the city with lightning-fast delivery and real-time tracking.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="#" class="transform hover:scale-105 transition-transform duration-300">
+                    <img src="assets/google-play-badge.svg" alt="Get it on Google Play" class="h-16 hover:opacity-90 transition-opacity">
+                </a>
+                <a href="#" class="transform hover:scale-105 transition-transform duration-300">
+                    <img src="assets/app-store-badge.svg" alt="Download on the App Store" class="h-16 hover:opacity-90 transition-opacity">
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <div class="logo-icon express-gradient">
-                            <i class="fas fa-shipping-fast"></i>
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 gradient-express rounded-lg flex items-center justify-center text-white">
+                            <i class="fas fa-bolt"></i>
                         </div>
-                        <span class="logo-text">Soma Ko Express</span>
+                        <span class="text-xl font-bold">Soma Ko Express</span>
                     </div>
-                    <p class="footer-description">Your trusted delivery partner providing fast, secure, and reliable package delivery services worldwide.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Lightning-fast courier and delivery service with real-time tracking.
+                    </p>
                 </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#tracking">Tracking</a></li>
-                        <li><a href="#business">Business</a></li>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Express Delivery</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Same Day Delivery</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Document Delivery</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Gift Delivery</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Other Apps</h3>
-                    <ul class="footer-links">
-                        <li><a href="food.html">Soma Ko Food</a></li>
-                        <li><a href="ride.html">Soma Ko Ride</a></li>
-                        <li><a href="pharmacy.html">Soma Ko Pharmacy</a></li>
-                        <li><a href="rent.html">Soma Ko Rent</a></li>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Track Package</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Become Courier</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Express Delivery</a></li>
-                        <li><a href="#">Same-Day Delivery</a></li>
-                        <li><a href="#">Business Solutions</a></li>
-                        <li><a href="#">International Shipping</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Contact</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>express@somako.org</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+1 (555) 123-FAST</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <span>24/7 Customer Support</span>
-                        </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="footer-divider"></div>
-                <div class="footer-bottom-content">
-                    <p class="copyright">&copy; 2025 Soma Ko Express. All rights reserved.</p>
-                    <div class="footer-bottom-links">
-                        <a href="#">Privacy</a>
-                        <a href="#">Terms</a>
-                        <a href="#">Shipping Policy</a>
-                    </div>
-                </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Soma Ko Express. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- JavaScript -->
+    <script src="script-tailwind.js"></script>
 </body>
 </html>
